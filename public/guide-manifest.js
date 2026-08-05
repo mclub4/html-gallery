@@ -1,0 +1,1 @@
+window.HTMLPPTGuides = Object.freeze({});

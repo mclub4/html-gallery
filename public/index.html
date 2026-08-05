@@ -1,0 +1,4135 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="여행·기술·문화·게임까지, 직접 넘겨보며 탐색하는 인터랙티브 HTML 프레젠테이션 아카이브."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="HTML PPT 아카이브" />
+    <meta property="og:title" content="HTML PPT 아카이브 — 넘겨보는 인터랙티브 프레젠테이션" />
+    <meta property="og:description" content="검색하고 골라서 직접 넘겨보는 HTML 프레젠테이션 아카이브." />
+    <meta property="og:image" content="/assets/covers/html-ppt-skill-manual.png" />
+    <meta property="og:image:width" content="1280" />
+    <meta property="og:image:height" content="720" />
+    <meta property="og:url" content="https://html-ppt-gallery.unequaled-condor.workers.dev/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="canonical" href="https://html-ppt-gallery.unequaled-condor.workers.dev/" />
+    <meta name="theme-color" content="#f1eee4" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <title>HTML PPT 아카이브 — 넘겨보는 인터랙티브 프레젠테이션</title>
+    <style>
+      @font-face {
+        font-family: SUIT;
+        src: url("assets/fonts/SUIT-Variable.woff2") format("woff2");
+        font-weight: 100 900;
+        font-style: normal;
+        font-display: swap;
+      }
+      :root {
+        color-scheme: dark;
+        --bg: #090b10;
+        --surface: #12151d;
+        --surface-raised: #181c26;
+        --paper: #f4f6fb;
+        --muted: #929aaa;
+        --line: rgba(229, 234, 248, 0.11);
+        --line-strong: rgba(229, 234, 248, 0.2);
+        --accent: #91a9ff;
+        --accent-soft: #c9d4ff;
+        --high: #ffb66e;
+        --medium: #9bb0df;
+        --claude: #d99c77;
+      }
+      * {
+        box-sizing: border-box;
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+      }
+      html {
+        background: var(--bg);
+        scroll-behavior: smooth;
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+        font-synthesis: none;
+      }
+      body {
+        min-width: 320px;
+        margin: 0;
+        background: var(--bg);
+        color: var(--paper);
+        font-family:
+          SUIT, ui-sans-serif, "Apple SD Gothic Neo", "Malgun Gothic",
+          sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+      }
+      h1,
+      h2,
+      h3,
+      p,
+      div,
+      span,
+      b,
+      strong,
+      em,
+      li,
+      button,
+      input,
+      select {
+        max-height: 999999px;
+      }
+      body.viewer-open {
+        overflow: hidden;
+        position: fixed;
+        inset: 0;
+        width: 100%;
+        height: 100svh;
+        height: 100dvh;
+        overscroll-behavior: none;
+        touch-action: none;
+      }
+      body.viewer-open .page {
+        visibility: hidden;
+        pointer-events: none;
+      }
+      button,
+      a {
+        font: inherit;
+      }
+      button {
+        color: inherit;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      .page {
+        position: relative;
+        min-height: 100vh;
+        overflow: hidden;
+        background:
+          radial-gradient(
+            circle at 74% 9%,
+            rgba(86, 111, 202, 0.16),
+            transparent 30%
+          ),
+          radial-gradient(
+            circle at 12% 38%,
+            rgba(64, 203, 174, 0.06),
+            transparent 24%
+          ),
+          var(--bg);
+      }
+      .page::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background-image:
+          linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+          linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.018) 1px,
+            transparent 1px
+          );
+        background-size: 48px 48px;
+        mask-image: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.7),
+          transparent 45%
+        );
+      }
+      .masthead {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 1440px;
+        margin: auto;
+        padding: 24px 42px;
+        border-bottom: 1px solid var(--line);
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: var(--paper);
+        text-decoration: none;
+      }
+      .brand-mark {
+        display: grid;
+        width: 36px;
+        height: 30px;
+        place-items: center;
+        border: 1px solid rgba(145, 169, 255, 0.6);
+        border-radius: 9px;
+        background: rgba(145, 169, 255, 0.08);
+        color: var(--accent-soft);
+        font:
+          750 11px/1 ui-monospace,
+          SFMono-Regular,
+          monospace;
+        letter-spacing: -0.04em;
+      }
+      .brand-name {
+        font-size: 13px;
+        font-weight: 780;
+        letter-spacing: 0.16em;
+      }
+      .masthead-note {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        color: #a6adbb;
+        font:
+          650 11px/1 ui-monospace,
+          SFMono-Regular,
+          monospace;
+        letter-spacing: 0.1em;
+      }
+      .masthead-note::before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #7ce2c3;
+        box-shadow: 0 0 0 4px rgba(124, 226, 195, 0.09);
+      }
+      .hero {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 330px;
+        align-items: end;
+        gap: 84px;
+        max-width: 1440px;
+        margin: auto;
+        padding: 86px 42px 82px;
+      }
+      .hero-main {
+        min-width: 0;
+      }
+      .eyebrow {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin: 0 0 22px;
+        color: #aebdf2;
+        font:
+          720 11px/1.2 ui-monospace,
+          SFMono-Regular,
+          monospace;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+      .eyebrow::before {
+        content: "";
+        width: 32px;
+        height: 1px;
+        background: var(--accent);
+      }
+      h1 {
+        max-width: 980px;
+        margin: 0;
+        font-size: clamp(58px, 6.3vw, 90px);
+        font-weight: 780;
+        line-height: 0.98;
+        letter-spacing: -0.065em;
+        word-break: keep-all;
+        overflow-wrap: normal;
+        text-wrap: balance;
+      }
+      h1 span {
+        display: block;
+        white-space: nowrap;
+      }
+      h1 em {
+        color: var(--accent-soft);
+        font-style: normal;
+      }
+      .hero-copy {
+        max-width: 680px;
+        margin: 30px 0 0;
+        color: #aeb5c2;
+        font-size: clamp(16px, 1.45vw, 19px);
+        font-weight: 430;
+        line-height: 1.72;
+        word-break: keep-all;
+        overflow-wrap: normal;
+      }
+      .hero-index {
+        align-self: end;
+        padding: 24px;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: linear-gradient(
+          145deg,
+          rgba(24, 28, 38, 0.92),
+          rgba(14, 17, 24, 0.92)
+        );
+        box-shadow: 0 24px 70px rgba(0, 0, 0, 0.22);
+      }
+      .index-label {
+        display: block;
+        margin-bottom: 12px;
+        color: #8f98a9;
+        font:
+          650 10px/1 ui-monospace,
+          SFMono-Regular,
+          monospace;
+        letter-spacing: 0.15em;
+      }
+      .index-main {
+        display: flex;
+        align-items: end;
+        gap: 13px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid var(--line);
+      }
+      .hero-index .index-main strong {
+        display: block;
+        color: var(--paper);
+        font-size: 68px;
+        font-weight: 720;
+        line-height: 0.82;
+        letter-spacing: -0.07em;
+      }
+      .index-main span {
+        max-width: 78px;
+        color: #aab1bf;
+        font:
+          650 10px/1.35 ui-monospace,
+          SFMono-Regular,
+          monospace;
+        letter-spacing: 0.08em;
+      }
+      .tier-counts {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
+        margin-top: 18px;
+      }
+      .tier-count {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 2px 8px;
+        align-items: center;
+      }
+      .tier-dot {
+        grid-row: 1/3;
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+      }
+      .tier-dot.high {
+        background: var(--high);
+        box-shadow: 0 0 12px rgba(255, 182, 110, 0.4);
+      }
+      .tier-dot.medium {
+        background: var(--medium);
+        box-shadow: 0 0 12px rgba(155, 176, 223, 0.35);
+      }
+      .tier-dot.claude {
+        background: var(--claude);
+        box-shadow: 0 0 12px rgba(217, 156, 119, 0.35);
+      }
+      .tier-count b {
+        font-size: 15px;
+        line-height: 1;
+      }
+      .tier-count small {
+        color: #7f8797;
+        font:
+          600 9px/1 ui-monospace,
+          SFMono-Regular,
+          monospace;
+        letter-spacing: 0.08em;
+        white-space: nowrap;
+      }
+      .gallery {
+        position: relative;
+        z-index: 1;
+        max-width: 1440px;
+        margin: auto;
+        padding: 0 42px 112px;
+      }
+      .gallery-head {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 24px;
+        margin-bottom: 26px;
+        padding-top: 28px;
+        border-top: 1px solid var(--line);
+      }
+      .gallery-head h2 {
+        margin: 0;
+        font-size: clamp(30px, 3vw, 42px);
+        font-weight: 740;
+        line-height: 1.08;
+        letter-spacing: -0.045em;
+        word-break: keep-all;
+      }
+      .gallery-head p {
+        max-width: 420px;
+        margin: 0;
+        color: #929aaa;
+        font-size: 13px;
+        line-height: 1.5;
+        text-align: right;
+        word-break: keep-all;
+      }
+      .album {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 24px;
+      }
+      .deck-card {
+        position: relative;
+        display: flex;
+        min-width: 0;
+        flex-direction: column;
+        width: 100%;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: linear-gradient(
+          180deg,
+          var(--surface-raised),
+          var(--surface)
+        );
+        text-align: left;
+        cursor: pointer;
+        text-decoration: none;
+        box-shadow: 0 10px 28px rgba(0, 0, 0, 0.14);
+        transition:
+          transform 0.28s ease,
+          border-color 0.28s ease,
+          box-shadow 0.28s ease;
+      }
+      .deck-card:hover {
+        transform: translateY(-5px);
+        border-color: rgba(145, 169, 255, 0.48);
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.32);
+      }
+      .deck-card:focus-visible {
+        outline: 3px solid var(--accent);
+        outline-offset: 4px;
+      }
+      .preview {
+        position: relative;
+        display: block;
+        aspect-ratio: 16/9;
+        overflow: hidden;
+        border-bottom: 1px solid var(--line);
+        background: #0d1017;
+      }
+      .preview img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition:
+          transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1),
+          filter 0.35s ease;
+      }
+      .deck-card:hover .preview img {
+        transform: scale(1.025);
+        filter: saturate(1.06);
+      }
+      .preview::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          180deg,
+          rgba(6, 8, 12, 0.16),
+          transparent 46%,
+          rgba(6, 8, 12, 0.55)
+        );
+        pointer-events: none;
+      }
+      .model-badge {
+        position: absolute;
+        left: 14px;
+        top: 14px;
+        z-index: 2;
+        padding: 7px 9px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 8px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+        font:
+          760 9px/1 ui-monospace,
+          SFMono-Regular,
+          monospace;
+        letter-spacing: 0.08em;
+        backdrop-filter: blur(10px);
+      }
+      .model-badge[data-tier="high"] {
+        background: rgba(255, 182, 110, 0.92);
+        color: #281609;
+      }
+      .model-badge[data-tier="medium"] {
+        background: rgba(155, 176, 223, 0.9);
+        color: #0b1225;
+      }
+      .model-badge[data-tier="claude"] {
+        background: rgba(217, 156, 119, 0.94);
+        color: #25150f;
+      }
+      .play {
+        position: absolute;
+        right: 14px;
+        bottom: 13px;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 9px 11px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 9px;
+        background: rgba(8, 10, 15, 0.78);
+        color: #fff;
+        font-size: 11px;
+        font-weight: 720;
+        backdrop-filter: blur(10px);
+      }
+      .play svg {
+        width: 13px;
+        height: 13px;
+        fill: currentColor;
+      }
+      .card-body {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        padding: 20px 20px 22px;
+      }
+      .meta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 13px;
+        color: #7f8796;
+        font:
+          650 10px/1 ui-monospace,
+          SFMono-Regular,
+          monospace;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .meta span:first-child {
+        min-width: 0;
+        overflow: hidden;
+        color: #b5c3f4;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .card-body h3 {
+        margin: 0;
+        color: #f2f4fa;
+        font-size: 23px;
+        font-weight: 730;
+        line-height: 1.28;
+        letter-spacing: -0.035em;
+        word-break: keep-all;
+        overflow-wrap: normal;
+        text-wrap: balance;
+      }
+      .card-body p {
+        display: -webkit-box;
+        min-height: 3.3em;
+        margin: 12px 0 0;
+        overflow: hidden;
+        color: #9ca4b3;
+        font-size: 14px;
+        font-weight: 430;
+        line-height: 1.65;
+        word-break: keep-all;
+        overflow-wrap: normal;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+      }
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: auto;
+        padding-top: 18px;
+      }
+      .tags span {
+        padding: 6px 8px;
+        border: 1px solid var(--line);
+        border-radius: 7px;
+        background: rgba(255, 255, 255, 0.018);
+        color: #aeb5c2;
+        font-size: 10px;
+        font-weight: 600;
+      }
+      .viewer[hidden] {
+        display: none;
+      }
+      .viewer {
+        position: fixed;
+        inset: 0;
+        z-index: 100;
+        display: grid;
+        grid-template-rows: 60px minmax(0, 1fr);
+        width: 100vw;
+        height: 100svh;
+        height: 100dvh;
+        background: #090908;
+        overflow: hidden;
+        overscroll-behavior: none;
+      }
+      .viewer-bar {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 0 18px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.11);
+        background: rgba(10, 12, 17, 0.97);
+      }
+      .close-viewer {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        padding: 9px 12px;
+        border: 0;
+        border-radius: 9px;
+        background: rgba(255, 255, 255, 0.07);
+        cursor: pointer;
+      }
+      .close-viewer:hover {
+        background: rgba(255, 255, 255, 0.14);
+      }
+      .close-viewer:disabled {
+        cursor: default;
+        opacity: 0.55;
+      }
+      .close-viewer:focus-visible,
+      .open-tab:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 2px;
+      }
+      .close-viewer svg,
+      .open-tab svg {
+        width: 18px;
+        height: 18px;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .viewer-title {
+        min-width: 0;
+        overflow: hidden;
+        color: #dce1ec;
+        font-size: 13px;
+        font-weight: 700;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .viewer-model {
+        flex: 0 0 auto;
+        padding: 6px 8px;
+        border-radius: 7px;
+        font:
+          750 9px/1 ui-monospace,
+          SFMono-Regular,
+          monospace;
+        letter-spacing: 0.07em;
+      }
+      .viewer-model[data-tier="high"] {
+        background: var(--high);
+        color: #281609;
+      }
+      .viewer-model[data-tier="medium"] {
+        background: var(--medium);
+        color: #0b1225;
+      }
+      .viewer-model[data-tier="claude"] {
+        background: var(--claude);
+        color: #25150f;
+      }
+      .open-tab {
+        display: grid;
+        width: 38px;
+        height: 38px;
+        margin-left: auto;
+        place-items: center;
+        border: 0;
+        border-radius: 10px;
+        background: transparent;
+        color: #b3afa5;
+        text-decoration: none;
+      }
+      .open-tab:hover {
+        background: rgba(255, 255, 255, 0.08);
+        color: #fff;
+      }
+      .frame-wrap {
+        position: relative;
+        min-height: 0;
+        height: 100%;
+        overflow: hidden;
+        background: #000;
+        touch-action: pan-x;
+      }
+      .deck-frame {
+        display: block;
+        width: 100%;
+        height: 100%;
+        border: 0;
+        background: #111;
+        visibility: hidden;
+        opacity: 0;
+      }
+      .viewer.ready .deck-frame {
+        visibility: visible;
+        opacity: 1;
+        transition: opacity 0.16s ease;
+      }
+      .loader {
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        display: grid;
+        place-content: center;
+        justify-items: center;
+        gap: 12px;
+        background: #0c0c0a;
+        color: #8f96a4;
+        text-align: center;
+        opacity: 1;
+        transition: opacity 0.16s ease;
+      }
+      .loader-spinner {
+        width: 25px;
+        height: 25px;
+        border: 2px solid rgba(145, 169, 255, 0.2);
+        border-top-color: var(--accent);
+        border-radius: 50%;
+        animation: loader-spin 0.8s linear infinite;
+      }
+      .loader strong {
+        color: #d7dce8;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+      }
+      .loader span:last-child {
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.01em;
+      }
+      .viewer.ready .loader {
+        pointer-events: none;
+        opacity: 0;
+      }
+      @keyframes loader-spin {
+        to {
+          transform: rotate(1turn);
+        }
+      }
+      .footer {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        justify-content: space-between;
+        gap: 24px;
+        max-width: 1440px;
+        margin: auto;
+        padding: 30px 42px;
+        border-top: 1px solid var(--line);
+        color: #727b8b;
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.03em;
+      }
+      @media (max-width: 1040px) {
+        .album {
+          grid-template-columns: 1fr 1fr;
+        }
+        .hero {
+          grid-template-columns: minmax(0, 1fr) 290px;
+          gap: 48px;
+        }
+        h1 {
+          font-size: clamp(52px, 7vw, 72px);
+        }
+      }
+      @media (max-width: 760px) {
+        .hero {
+          grid-template-columns: 1fr;
+          padding-top: 64px;
+        }
+        .hero-index {
+          max-width: 320px;
+        }
+        .gallery-head {
+          align-items: start;
+          flex-direction: column;
+        }
+        .gallery-head p {
+          text-align: left;
+        }
+      }
+      @media (max-width: 650px) {
+        .masthead {
+          padding: 18px 20px;
+        }
+        .masthead-note {
+          font-size: 0;
+          letter-spacing: 0;
+        }
+        .masthead-note::after {
+          content: attr(data-mobile-count);
+          font:
+            650 10px/1 ui-monospace,
+            SFMono-Regular,
+            monospace;
+          letter-spacing: 0.1em;
+        }
+        .hero {
+          gap: 38px;
+          padding: 58px 20px 62px;
+        }
+        .eyebrow {
+          margin-bottom: 18px;
+        }
+        h1 {
+          font-size: clamp(34px, 10.8vw, 44px);
+          line-height: 1.02;
+          letter-spacing: -0.06em;
+        }
+        h1 span {
+          white-space: nowrap;
+        }
+        .hero-copy {
+          margin-top: 24px;
+          font-size: 16px;
+          line-height: 1.65;
+        }
+        .hero-index {
+          padding: 20px;
+        }
+        .gallery {
+          padding: 0 20px 76px;
+        }
+        .gallery-head {
+          padding-top: 24px;
+        }
+        .album {
+          grid-template-columns: 1fr;
+          gap: 18px;
+        }
+        .card-body h3 {
+          font-size: 22px;
+        }
+        .footer {
+          padding: 24px 20px;
+          flex-direction: column;
+        }
+        .viewer {
+          grid-template-rows: 56px minmax(0, 1fr);
+          height: 100dvh;
+        }
+        .viewer-bar {
+          gap: 9px;
+          padding: 0 10px;
+        }
+        .close-viewer span {
+          display: none;
+        }
+        .viewer-title {
+          font-size: 12px;
+        }
+        .viewer-model {
+          display: none;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          scroll-behavior: auto !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
+    <style id="editorial-redesign">
+      @font-face {
+        font-family: GallerySerif;
+        src: url("assets/fonts/NotoSerifCJKkr-Regular.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+      :root {
+        color-scheme: light;
+        --bg: #f1eee4;
+        --surface: #f1eee4;
+        --surface-raised: #f1eee4;
+        --paper: #171714;
+        --muted: #716d65;
+        --line: rgba(23, 23, 20, 0.22);
+        --line-strong: #171714;
+        --accent: #d43b30;
+        --accent-soft: #d43b30;
+        --extra-high: #d45445;
+        --ultra: #7f5aa6;
+        --high: #e1ad68;
+        --medium: #8299bb;
+        --low: #b4afa4;
+        --terra-high: #2f6f59;
+        --terra-medium: #5c927b;
+        --terra-low: #9bc5ae;
+        --claude: #c98d70;
+      }
+      html {
+        background: var(--bg);
+      }
+      body {
+        background: var(--bg);
+        color: var(--paper);
+      }
+      .page {
+        overflow: clip;
+        background-color: var(--bg);
+        background-image: repeating-linear-gradient(
+          0deg,
+          rgba(23, 23, 20, 0.018) 0,
+          rgba(23, 23, 20, 0.018) 1px,
+          transparent 1px,
+          transparent 5px
+        );
+      }
+      .page::before {
+        inset: 0 auto auto 26px;
+        width: 2px;
+        height: 100%;
+        background: var(--accent);
+        mask-image: none;
+        opacity: 0.9;
+      }
+      .masthead {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        max-width: 1480px;
+        padding: 18px 44px 16px;
+        border-top: 7px solid var(--paper);
+        border-bottom: 1px solid var(--paper);
+      }
+      .brand {
+        gap: 10px;
+        justify-self: start;
+        color: var(--paper);
+      }
+      .brand-mark {
+        width: 42px;
+        height: 34px;
+        border: 1px solid var(--paper);
+        border-radius: 0;
+        background: transparent;
+        color: var(--paper);
+        font-size: 10px;
+        letter-spacing: 0.04em;
+      }
+      .brand-name {
+        font-size: 12px;
+        font-weight: 850;
+        line-height: 1.05;
+        letter-spacing: 0.13em;
+      }
+      .masthead-center {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        color: var(--paper);
+        font:
+          720 10px/1 ui-monospace,
+          SFMono-Regular,
+          monospace;
+        letter-spacing: 0.11em;
+      }
+      .masthead-center span + span {
+        padding-left: 14px;
+        border-left: 1px solid var(--line);
+      }
+      .masthead-note {
+        justify-self: end;
+        color: var(--paper);
+        font-size: 10px;
+        letter-spacing: 0.12em;
+      }
+      .masthead-note::before {
+        width: 18px;
+        height: 2px;
+        border-radius: 0;
+        background: var(--accent);
+        box-shadow: none;
+      }
+      .hero {
+        display: grid;
+        grid-template-columns: repeat(12, minmax(0, 1fr));
+        align-items: start;
+        gap: 24px;
+        max-width: 1480px;
+        padding: 72px 44px 92px;
+      }
+      .hero-rail {
+        grid-column: 1/2;
+        display: flex;
+        min-height: 330px;
+        flex-direction: column;
+        justify-content: space-between;
+        border-top: 4px solid var(--paper);
+        padding-top: 12px;
+        color: var(--paper);
+      }
+      .hero-rail span,
+      .hero-rail small {
+        font:
+          720 9px/1.35 ui-monospace,
+          SFMono-Regular,
+          monospace;
+        letter-spacing: 0.13em;
+      }
+      .hero-rail strong {
+        font:
+          400 clamp(58px, 6vw, 88px) / 0.8 GallerySerif,
+          "Noto Serif CJK KR",
+          serif;
+        letter-spacing: -0.08em;
+        writing-mode: vertical-rl;
+      }
+      .hero-main {
+        grid-column: 2/10;
+        min-width: 0;
+      }
+      .eyebrow {
+        gap: 10px;
+        margin: 0 0 26px;
+        color: var(--paper);
+        font-size: 10px;
+        letter-spacing: 0.13em;
+      }
+      .eyebrow::before {
+        width: 42px;
+        background: var(--accent);
+      }
+      h1 {
+        max-width: 900px;
+        font-family: GallerySerif, "Noto Serif CJK KR", serif;
+        font-size: clamp(56px, 6.15vw, 88px);
+        font-weight: 400;
+        line-height: 1.07;
+        letter-spacing: -0.07em;
+      }
+      h1 span {
+        white-space: normal;
+      }
+      h1 em {
+        color: var(--accent);
+      }
+      .hero-copy {
+        max-width: 650px;
+        margin-top: 28px;
+        color: #57534c;
+        font-size: 16px;
+        font-weight: 520;
+        line-height: 1.75;
+      }
+      .hero-index {
+        grid-column: 10/13;
+        align-self: stretch;
+        padding: 12px 0 0;
+        border: 0;
+        border-top: 4px solid var(--paper);
+        border-bottom: 1px solid var(--paper);
+        border-radius: 0;
+        background: none;
+        box-shadow: none;
+      }
+      .index-label {
+        margin-bottom: 20px;
+        color: var(--paper);
+        font-size: 9px;
+        letter-spacing: 0.15em;
+      }
+      .index-main {
+        align-items: start;
+        justify-content: space-between;
+        padding-bottom: 22px;
+        border-bottom: 1px solid var(--paper);
+      }
+      .hero-index .index-main strong {
+        color: var(--paper);
+        font:
+          400 92px/0.72 GallerySerif,
+          "Noto Serif CJK KR",
+          serif;
+        letter-spacing: -0.08em;
+      }
+      .index-main span {
+        max-width: 88px;
+        color: var(--paper);
+        font-size: 9px;
+        line-height: 1.4;
+        text-align: right;
+      }
+      .tier-counts {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        margin-top: 0;
+      }
+      .tier-count {
+        display: grid;
+        grid-template-columns: 9px 34px 1fr;
+        gap: 10px;
+        align-items: center;
+        padding: 8px 0;
+        border-top: 1px solid var(--line);
+      }
+      .tier-count:first-child {
+        border-top: 0;
+      }
+      .tier-dot {
+        grid-row: auto;
+        width: 7px;
+        height: 7px;
+        border-radius: 0;
+        box-shadow: none !important;
+      }
+      .tier-dot.extra-high {
+        background: var(--extra-high);
+      }
+      .tier-dot.ultra {
+        background: var(--ultra);
+      }
+      .tier-dot.high {
+        background: var(--high);
+      }
+      .tier-dot.medium {
+        background: var(--medium);
+      }
+      .tier-dot.low {
+        background: var(--low);
+      }
+      .tier-dot.terra-high {
+        background: var(--terra-high);
+      }
+      .tier-dot.terra-medium {
+        background: var(--terra-medium);
+      }
+      .tier-dot.terra-low {
+        background: var(--terra-low);
+      }
+      .tier-dot.claude {
+        background: var(--claude);
+      }
+      .tier-count b {
+        font:
+          750 13px/1 ui-monospace,
+          SFMono-Regular,
+          monospace;
+      }
+      .tier-count small {
+        color: #57534c;
+        font-size: 8px;
+        letter-spacing: 0.08em;
+        text-align: right;
+      }
+      .gallery {
+        max-width: 1480px;
+        padding: 0 44px 140px;
+      }
+      .gallery-head {
+        display: grid;
+        grid-template-columns: repeat(12, minmax(0, 1fr));
+        align-items: end;
+        gap: 24px;
+        margin-bottom: 46px;
+        padding-top: 18px;
+        border-top: 4px solid var(--paper);
+      }
+      .gallery-heading {
+        grid-column: 1/9;
+        display: flex;
+        align-items: baseline;
+        gap: 20px;
+      }
+      .section-no {
+        color: var(--accent);
+        font:
+          750 14px/1 ui-monospace,
+          SFMono-Regular,
+          monospace;
+        letter-spacing: 0.1em;
+      }
+      .gallery-head h2 {
+        font-family: GallerySerif, "Noto Serif CJK KR", serif;
+        font-size: clamp(48px, 4.7vw, 68px);
+        font-weight: 400;
+        line-height: 1;
+        letter-spacing: -0.06em;
+      }
+      .gallery-head p {
+        grid-column: 9/13;
+        max-width: none;
+        color: #625e56;
+        font-size: 12px;
+        line-height: 1.65;
+        text-align: left;
+      }
+      .topic-order {
+        display: grid;
+        grid-template-columns: repeat(7, minmax(0, 1fr));
+        gap: 0;
+        margin: -12px 0 56px;
+        border-top: 1px solid var(--paper);
+        border-bottom: 1px solid var(--paper);
+        list-style: none;
+      }
+      .topic-order li {
+        display: flex;
+        min-height: 54px;
+        gap: 11px;
+        align-items: center;
+        min-width: 0;
+        padding: 17px 14px;
+        border-left: 1px solid var(--line);
+        font:
+          720 12px/1.25 ui-monospace,
+          SFMono-Regular,
+          monospace;
+        letter-spacing: 0.04em;
+        white-space: nowrap;
+      }
+      .topic-order li:first-child {
+        padding-left: 0;
+        border-left: 0;
+      }
+      .topic-order b {
+        color: var(--accent);
+        font-size: 11px;
+      }
+      .topic-order span {
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .album {
+        display: grid;
+        grid-template-columns: repeat(12, minmax(0, 1fr));
+        grid-auto-flow: row;
+        gap: 58px 24px;
+        align-items: stretch;
+      }
+      .deck-card {
+        grid-column: span 4;
+        display: flex;
+        height: 100%;
+        flex-direction: column;
+        overflow: visible;
+        border: 0;
+        border-top: 2px solid var(--paper);
+        border-radius: 0;
+        background: none;
+        box-shadow: none;
+        transition: none;
+      }
+      .deck-card.manual-card {
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: minmax(0, 1.55fr) minmax(340px, 1fr);
+        column-gap: 32px;
+        border-top: 6px solid var(--accent);
+        padding-top: 2px;
+      }
+      .manual-card .article-head {
+        grid-column: 1 / -1;
+      }
+      .manual-card .preview {
+        grid-column: 1;
+        grid-row: 2;
+        margin-bottom: 0;
+      }
+      .manual-card .card-body {
+        grid-column: 2;
+        grid-row: 2;
+        padding: 20px 0 2px;
+      }
+      .manual-card .card-body h3 {
+        max-width: none;
+        color: var(--accent);
+        font-size: clamp(38px, 4.6vw, 66px);
+        font-weight: 600;
+        line-height: 1.05;
+      }
+      .manual-card .card-body p {
+        color: #4d4942;
+        font-size: 15px;
+      }
+      .manual-card .article-no {
+        font-size: 18px;
+        font-weight: 900;
+      }
+      .deck-card:hover {
+        transform: none;
+        border-color: var(--paper);
+        box-shadow: none;
+      }
+      .deck-card:focus-visible {
+        outline: 3px solid var(--accent);
+        outline-offset: 6px;
+      }
+      .article-head {
+        display: grid;
+        grid-template-columns: 42px minmax(0, 1fr) auto;
+        gap: 12px;
+        align-items: center;
+        padding: 10px 0 9px;
+        border-bottom: 1px solid var(--line);
+        color: var(--paper);
+        font:
+          750 10px/1.2 ui-monospace,
+          SFMono-Regular,
+          monospace;
+        letter-spacing: 0.075em;
+        text-transform: uppercase;
+      }
+      .article-no {
+        color: var(--accent);
+        font-size: 11px;
+      }
+      .article-kind {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .article-slides {
+        color: #777168;
+      }
+      .preview {
+        margin: 14px 0 20px;
+        border: 0;
+        background: #d7d1c5;
+      }
+      .preview img {
+        filter: saturate(0.86) contrast(1.02);
+        transition:
+          transform 0.24s ease,
+          filter 0.24s ease;
+      }
+      .deck-card:hover .preview img {
+        transform: scale(1.012);
+        filter: saturate(1) contrast(1.02);
+      }
+      .preview::after {
+        display: none;
+      }
+      .model-badge {
+        left: 12px;
+        top: 12px;
+        padding: 10px 12px;
+        border: 2px solid var(--paper);
+        border-radius: 0;
+        box-shadow: 3px 3px 0 rgba(23, 23, 20, 0.88);
+        font-size: 11px;
+        font-weight: 850;
+        letter-spacing: 0.055em;
+        backdrop-filter: none;
+      }
+      .model-badge[data-tier="extra-high"],
+      .viewer-model[data-tier="extra-high"] {
+        background: var(--extra-high);
+        color: #fff;
+      }
+      .model-badge[data-tier="ultra"],
+      .viewer-model[data-tier="ultra"] {
+        background: var(--ultra);
+        color: #fff;
+      }
+      .model-badge[data-tier="high"],
+      .viewer-model[data-tier="high"] {
+        background: var(--high);
+        color: #281609;
+      }
+      .model-badge[data-tier="medium"],
+      .viewer-model[data-tier="medium"] {
+        background: var(--medium);
+        color: #0b1225;
+      }
+      .model-badge[data-tier="low"],
+      .viewer-model[data-tier="low"] {
+        background: var(--low);
+        color: #25231f;
+      }
+      .model-badge[data-tier="terra-high"],
+      .viewer-model[data-tier="terra-high"] {
+        background: var(--terra-high);
+        color: #fff;
+      }
+      .model-badge[data-tier="terra-medium"],
+      .viewer-model[data-tier="terra-medium"] {
+        background: var(--terra-medium);
+        color: #fff;
+      }
+      .model-badge[data-tier="terra-low"],
+      .viewer-model[data-tier="terra-low"] {
+        background: var(--terra-low);
+        color: #13251d;
+      }
+      .model-badge[data-tier="claude"],
+      .viewer-model[data-tier="claude"] {
+        background: var(--claude);
+        color: #25150f;
+      }
+      .play {
+        right: 0;
+        bottom: 0;
+        gap: 9px;
+        padding: 10px 12px;
+        border: 0;
+        border-top: 1px solid var(--paper);
+        border-left: 1px solid var(--paper);
+        border-radius: 0;
+        background: var(--bg);
+        color: var(--paper);
+        font:
+          760 9px/1 ui-monospace,
+          SFMono-Regular,
+          monospace;
+        letter-spacing: 0.1em;
+        backdrop-filter: none;
+      }
+      .play svg {
+        width: 12px;
+        height: 12px;
+        transition: transform 0.2s ease;
+      }
+      .deck-card:hover .play svg {
+        transform: translateX(3px);
+      }
+      .card-body {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        padding: 0;
+      }
+      .card-body h3 {
+        max-width: 95%;
+        color: var(--paper);
+        font-family: GallerySerif, "Noto Serif CJK KR", serif;
+        font-size: clamp(23px, 2vw, 29px);
+        font-weight: 400;
+        line-height: 1.35;
+        letter-spacing: -0.05em;
+        text-wrap: balance;
+      }
+      .card-body p {
+        display: block;
+        min-height: 0;
+        max-width: 690px;
+        margin: 12px 0 0;
+        color: #625e56;
+        font-size: 13px;
+        font-weight: 500;
+        line-height: 1.7;
+        -webkit-line-clamp: unset;
+      }
+      .card-foot {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 16px;
+        margin-top: auto;
+        padding-top: 14px;
+        border-bottom: 0;
+        border-top: 1px solid var(--paper);
+      }
+      .tags {
+        gap: 6px;
+        margin: 0;
+        padding: 0;
+      }
+      .tags span {
+        padding: 6px 8px;
+        border: 1px solid #8e887e;
+        border-radius: 0;
+        background: rgba(255, 255, 255, 0.22);
+        color: #48443e;
+        font:
+          750 10.5px/1 ui-monospace,
+          SFMono-Regular,
+          monospace;
+        letter-spacing: 0;
+      }
+      .tags span + span::before {
+        display: none;
+        content: "";
+      }
+      .open-copy {
+        flex: 0 0 auto;
+        color: var(--paper);
+        font:
+          800 10px/1 ui-monospace,
+          SFMono-Regular,
+          monospace;
+        letter-spacing: 0.07em;
+        border-bottom: 1px solid var(--paper);
+        padding-bottom: 4px;
+      }
+      .footer {
+        display: grid;
+        grid-template-columns: repeat(12, minmax(0, 1fr));
+        gap: 24px;
+        max-width: none;
+        margin: 0;
+        padding: 54px max(44px, calc((100vw - 1392px) / 2)) 58px;
+        border-top: 0;
+        background: var(--paper);
+        color: var(--bg);
+        font-size: 11px;
+        letter-spacing: 0;
+      }
+      .footer-issue {
+        grid-column: 1/4;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .footer-issue span {
+        font:
+          750 10px/1 ui-monospace,
+          SFMono-Regular,
+          monospace;
+        letter-spacing: 0.13em;
+      }
+      .footer-issue strong {
+        font:
+          400 clamp(34px, 4vw, 58px) / 1 GallerySerif,
+          "Noto Serif CJK KR",
+          serif;
+        letter-spacing: -0.06em;
+      }
+      .footer-copy {
+        grid-column: 4/8;
+        display: flex;
+        max-width: 350px;
+        flex-direction: column;
+        gap: 12px;
+        color: #bcb6aa;
+        font-size: 12px;
+        line-height: 1.65;
+      }
+      .footer-copy b {
+        color: var(--bg);
+        font:
+          700 9px/1.4 ui-monospace,
+          SFMono-Regular,
+          monospace;
+        letter-spacing: 0.08em;
+      }
+      .github-link {
+        grid-column: 8/13;
+        display: grid;
+        grid-template-columns: 34px 1fr auto;
+        gap: 16px;
+        align-items: center;
+        align-self: start;
+        padding: 17px 0;
+        border-top: 1px solid var(--bg);
+        border-bottom: 1px solid rgba(241, 238, 228, 0.35);
+        color: var(--bg);
+        transition:
+          color 0.2s ease,
+          border-color 0.2s ease;
+      }
+      .github-link:hover {
+        color: #f2a096;
+        border-top-color: #f2a096;
+      }
+      .github-link svg {
+        width: 30px;
+        height: 30px;
+        fill: currentColor;
+      }
+      .github-link span {
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+      }
+      .github-link small {
+        font:
+          650 8px/1 ui-monospace,
+          SFMono-Regular,
+          monospace;
+        letter-spacing: 0.12em;
+      }
+      .github-link b {
+        font-family: GallerySerif, "Noto Serif CJK KR", serif;
+        font-size: 21px;
+        font-weight: 400;
+        letter-spacing: -0.03em;
+      }
+      .github-link i {
+        font-size: 24px;
+        font-style: normal;
+      }
+      .viewer {
+        background: #111;
+        grid-template-rows: 58px minmax(0, 1fr);
+      }
+      .viewer-bar {
+        padding: 0 14px;
+        border-bottom: 1px solid #333;
+        background: #171714;
+        color: #f1eee4;
+      }
+      .close-viewer {
+        min-height: 40px;
+        padding: 9px 13px;
+        border-radius: 0;
+        background: var(--accent);
+        color: #fff;
+        font-weight: 750;
+      }
+      .close-viewer:hover {
+        background: #b82f27;
+      }
+      .viewer-title {
+        color: #f1eee4;
+      }
+      .viewer-model {
+        padding: 8px 10px;
+        border-radius: 0;
+        font-size: 11px;
+        font-weight: 850;
+      }
+      .open-tab {
+        border-radius: 0;
+        color: #d5d0c5;
+      }
+      .frame-wrap {
+        background: #111;
+      }
+      .loader {
+        background: var(--bg);
+        color: #625e56;
+      }
+      .loader-spinner {
+        border-color: rgba(212, 59, 48, 0.2);
+        border-top-color: var(--accent);
+        border-radius: 50%;
+      }
+      .loader strong {
+        color: var(--paper);
+        font-family: GallerySerif, "Noto Serif CJK KR", serif;
+        font-size: 16px;
+        font-weight: 400;
+      }
+      @media (max-width: 1050px) {
+        .masthead {
+          padding-left: 32px;
+          padding-right: 32px;
+        }
+        .hero {
+          padding-left: 32px;
+          padding-right: 32px;
+        }
+        .hero-rail {
+          display: none;
+        }
+        .hero-main {
+          grid-column: 1/9;
+        }
+        .hero-index {
+          grid-column: 9/13;
+        }
+        .gallery {
+          padding-left: 32px;
+          padding-right: 32px;
+        }
+        .topic-order {
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+        .topic-order li:nth-child(5) {
+          border-left: 0;
+        }
+        .album {
+          grid-template-columns: repeat(6, minmax(0, 1fr));
+        }
+        .deck-card {
+          grid-column: span 3;
+        }
+        .deck-card.manual-card {
+          grid-column: 1 / -1;
+          grid-template-columns: 1fr;
+          row-gap: 0;
+        }
+        .manual-card .preview,
+        .manual-card .card-body {
+          grid-column: 1;
+          grid-row: auto;
+        }
+        .footer {
+          padding-left: 32px;
+          padding-right: 32px;
+        }
+        .footer-issue {
+          grid-column: 1/4;
+        }
+        .footer-copy {
+          grid-column: 4/7;
+        }
+        .github-link {
+          grid-column: 7/13;
+        }
+      }
+      @media (max-width: 760px) {
+        .page::before {
+          left: 10px;
+        }
+        .masthead {
+          grid-template-columns: 1fr auto;
+          padding: 14px 20px 13px;
+        }
+        .masthead-center {
+          display: none;
+        }
+        .masthead-note {
+          font-size: 0;
+        }
+        .masthead-note::after {
+          content: attr(data-mobile-issue);
+          font:
+            720 9px/1 ui-monospace,
+            SFMono-Regular,
+            monospace;
+          letter-spacing: 0.09em;
+        }
+        .hero {
+          display: block;
+          padding: 54px 20px 64px;
+        }
+        .hero-main {
+          display: block;
+        }
+        .eyebrow {
+          margin-bottom: 20px;
+        }
+        h1 {
+          font-size: clamp(42px, 12.5vw, 60px);
+          line-height: 1.08;
+        }
+        .hero-copy {
+          font-size: 15px;
+        }
+        .hero-index {
+          margin-top: 46px;
+          padding-top: 10px;
+        }
+        .index-main {
+          align-items: end;
+        }
+        .hero-index .index-main strong {
+          font-size: 78px;
+        }
+        .tier-counts {
+          display: grid;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 0;
+        }
+        .tier-count {
+          display: flex;
+          min-width: 0;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 5px;
+          padding: 12px 8px;
+          border-top: 0;
+          border-left: 1px solid var(--line);
+        }
+        .tier-count:nth-child(3n + 1) {
+          border-left: 0;
+        }
+        .tier-count:nth-child(3n + 1) {
+          padding-left: 0;
+        }
+        .tier-dot {
+          width: 16px;
+          height: 3px;
+        }
+        .tier-count small {
+          font-size: 8px;
+          text-align: left;
+        }
+        .gallery {
+          padding: 0 20px 90px;
+        }
+        .gallery-head {
+          display: block;
+          margin-bottom: 34px;
+          padding-top: 14px;
+        }
+        .gallery-heading {
+          display: flex;
+          gap: 14px;
+        }
+        .section-no {
+          font-size: 12px;
+        }
+        .gallery-head h2 {
+          font-size: clamp(40px, 11.5vw, 52px);
+        }
+        .gallery-head p {
+          margin-top: 16px;
+        }
+        .topic-order {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          margin: -4px 0 42px;
+        }
+        .topic-order li {
+          min-height: 50px;
+          padding: 15px 10px;
+          font-size: 11px;
+        }
+        .topic-order li:nth-child(odd) {
+          padding-left: 0;
+          border-left: 0;
+        }
+        .topic-order li:nth-child(4) {
+          border-left: 1px solid var(--line);
+        }
+        .topic-order li:nth-child(5) {
+          border-left: 0;
+        }
+        .album {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 46px;
+        }
+        .deck-card {
+          grid-column: span 1;
+        }
+        .deck-card.manual-card {
+          grid-column: span 1;
+          display: flex;
+        }
+        .manual-card .card-body {
+          padding-top: 0;
+        }
+        .manual-card .card-body h3 {
+          font-size: 36px;
+        }
+        .article-head {
+          font-size: 9.5px;
+        }
+        .model-badge {
+          left: 10px;
+          top: 10px;
+          padding: 9px 10px;
+          font-size: 10px;
+        }
+        .card-body h3 {
+          font-size: 25px;
+        }
+        .card-body p {
+          font-size: 13px;
+        }
+        .tags span {
+          font-size: 10.5px;
+        }
+        .footer {
+          display: block;
+          padding: 44px 20px 48px;
+        }
+        .footer-copy {
+          margin-top: 30px;
+        }
+        .github-link {
+          margin-top: 38px;
+        }
+        .viewer {
+          grid-template-rows: 56px minmax(0, 1fr);
+        }
+      }
+      @media (max-width: 900px) and (orientation: landscape) {
+        .viewer {
+          grid-template-columns: 44px minmax(0, 1fr);
+          grid-template-rows: minmax(0, 1fr);
+        }
+        .viewer-bar {
+          flex-direction: column;
+          gap: 8px;
+          align-items: center;
+          justify-content: flex-start;
+          min-width: 0;
+          padding: 8px 4px;
+          border-right: 1px solid #333;
+          border-bottom: 0;
+        }
+        .close-viewer {
+          width: 36px;
+          min-height: 36px;
+          padding: 0;
+          justify-content: center;
+        }
+        .close-viewer span,
+        .viewer-title,
+        .viewer-model {
+          display: none;
+        }
+        .open-tab,
+        .share-deck {
+          width: 36px;
+          height: 36px;
+          margin-left: 0;
+        }
+        .frame-wrap {
+          grid-column: 2;
+          grid-row: 1;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .preview img,
+        .play svg,
+        .github-link {
+          transition: none !important;
+        }
+      }
+    </style>
+    <link rel="stylesheet" href="gallery-enhancements.css" />
+  </head>
+  <body>
+    <div class="page" id="hub">
+      <header class="masthead">
+        <a class="brand" href="/" aria-label="HTML PPT Gallery 홈">
+          <span class="brand-mark">H/P</span
+          ><span class="brand-name">HTML PPT<br />GALLERY</span>
+        </a>
+        <div class="masthead-center" aria-hidden="true">
+          <span>ISSUE 01</span><span>JUL. 2026</span>
+        </div>
+        <span class="masthead-note" data-mobile-count="72 DECKS" data-mobile-issue="ISSUE 01 / 72 DECKS">INTERACTIVE PRESENTATION INDEX</span>
+      </header>
+
+      <main>
+        <section class="hero" aria-labelledby="page-title">
+          <div class="hero-rail" aria-hidden="true">
+            <span>ARCHIVE<br />NO. 01</span><strong data-deck-count>74</strong
+            ><small>HTML<br />PRESENTATION</small>
+          </div>
+          <div class="hero-main">
+            <p class="eyebrow">HTML presentation archive / issue 01</p>
+            <h1 id="page-title">
+              <span>넘겨보는</span><span>HTML <em>PPT</em> 아카이브</span>
+            </h1>
+            <p class="hero-copy">
+              같은 도구로도 전혀 다른 장면이 만들어집니다. 여행, 기술, 비즈니스,
+              문화, 게임까지—총 <span data-deck-count>74</span>개의 프레젠테이션을 표지부터 마지막 장까지
+              직접 넘겨보세요.
+            </p>
+          </div>
+          <aside
+            class="hero-index"
+            aria-label="현재 공개된 예시와 생성 모델별 수"
+          >
+            <span class="index-label">MODEL LEDGER / 2026.07</span>
+            <div class="index-main">
+              <strong data-deck-count>74</strong><span>INTERACTIVE DECKS</span>
+            </div>
+            <div class="tier-counts">
+              <div class="tier-count">
+                <i class="tier-dot extra-high"></i><b data-model-count="extra-high">03</b
+                ><small>SOL EXTRA HIGH</small>
+              </div>
+              <div class="tier-count">
+                <i class="tier-dot ultra"></i><b data-model-count="ultra">01</b><small>SOL ULTRA</small>
+              </div>
+              <div class="tier-count">
+                <i class="tier-dot high"></i><b data-model-count="high">26</b><small>SOL HIGH</small>
+              </div>
+              <div class="tier-count">
+                <i class="tier-dot medium"></i><b data-model-count="medium">24</b
+                ><small>SOL MEDIUM</small>
+              </div>
+              <div class="tier-count">
+                <i class="tier-dot low"></i><b data-model-count="low">05</b><small>SOL LOW</small>
+              </div>
+              <div class="tier-count">
+                <i class="tier-dot terra-high"></i><b data-model-count="terra-high">02</b
+                ><small>TERRA HIGH</small>
+              </div>
+              <div class="tier-count">
+                <i class="tier-dot terra-medium"></i><b data-model-count="terra-medium">04</b
+                ><small>TERRA MEDIUM</small>
+              </div>
+              <div class="tier-count">
+                <i class="tier-dot terra-low"></i><b data-model-count="terra-low">03</b
+                ><small>TERRA LOW</small>
+              </div>
+              <div class="tier-count">
+                <i class="tier-dot claude"></i><b data-model-count="claude">04</b><small>OPUS 4.8</small>
+              </div>
+            </div>
+          </aside>
+        </section>
+
+        <section class="gallery" aria-labelledby="gallery-title">
+          <div class="gallery-head">
+            <div class="gallery-heading">
+              <span class="section-no">02</span>
+              <h2 id="gallery-title">목차 / <span data-deck-count>74</span> Decks</h2>
+            </div>
+            <p>
+              여행에서 시작해 기술과 문화로 이어집니다. 게임 프레젠테이션은
+              마지막 묶음에서 한 번에 비교해 보세요.
+            </p>
+          </div>
+          <section class="guide-section" aria-labelledby="guideTitle">
+            <div class="guide-head">
+              <span>START HERE · 00</span>
+              <div>
+                <h3 id="guideTitle">처음이라면, 사용설명서부터</h3>
+                <p>HTML PPT 스킬의 특징과 제작 흐름, 조합 가능한 도구와 배포 방법을 먼저 훑어보세요.</p>
+              </div>
+            </div>
+            <div class="guide-deck" id="guideDeck"></div>
+          </section>
+          <section class="featured-section" aria-labelledby="featuredTitle">
+            <div class="featured-head">
+              <div><span>EDITOR'S SELECTION · 06</span><h3 id="featuredTitle">먼저 볼 TOP 6</h3></div>
+              <p>주제와 표현 방식이 겹치지 않도록 골랐습니다. 이 여섯 편만 봐도 HTML PPT 스킬의 폭을 빠르게 확인할 수 있습니다.</p>
+            </div>
+            <div class="featured-grid" id="featuredDecks"></div>
+          </section>
+          <div class="archive-head"><span>FULL ARCHIVE</span><strong>전체 프레젠테이션</strong><em><span data-archive-count>92</span> DECKS</em></div>
+          <div class="gallery-controls" role="search" aria-label="프레젠테이션 검색과 정렬">
+            <label class="deck-search" for="deckSearch">
+              <span>SEARCH</span>
+              <input id="deckSearch" type="search" autocomplete="off" placeholder="제목, 태그, 모델로 검색" />
+              <kbd>/</kbd>
+            </label>
+            <label class="deck-sort" for="deckSort">
+              <span>SORT</span>
+              <select id="deckSort">
+                <option value="curated">추천 순서</option>
+                <option value="title">제목 가나다순</option>
+                <option value="slides-asc">슬라이드 적은 순</option>
+                <option value="slides-desc">슬라이드 많은 순</option>
+                <option value="model">모델 등급순</option>
+              </select>
+            </label>
+            <button class="reset-filters" id="resetFilters" type="button">초기화</button>
+            <p class="result-count" id="resultCount" aria-live="polite">75개 전체</p>
+          </div>
+          <ol class="topic-order" aria-label="프레젠테이션 주제 필터">
+            <li><button type="button" data-topic-filter="all" aria-pressed="true"><b>00</b><span>전체</span></button></li>
+            <li><button type="button" data-topic-filter="travel" aria-pressed="false"><b>01</b><span>여행</span></button></li>
+            <li><button type="button" data-topic-filter="sports" aria-pressed="false"><b>02</b><span>스포츠 · 건강</span></button></li>
+            <li><button type="button" data-topic-filter="technology" aria-pressed="false"><b>03</b><span>기술 · 연구</span></button></li>
+            <li><button type="button" data-topic-filter="business" aria-pressed="false"><b>04</b><span>비즈니스</span></button></li>
+            <li><button type="button" data-topic-filter="culture" aria-pressed="false"><b>05</b><span>문화 · 음식 · 예술</span></button></li>
+            <li><button type="button" data-topic-filter="design" aria-pressed="false"><b>06</b><span>디자인 · 시나리오</span></button></li>
+            <li><button type="button" data-topic-filter="game" aria-pressed="false"><b>07</b><span>게임</span></button></li>
+          </ol>
+          <div class="album" id="deckAlbum"></div>
+        </section>
+      </main>
+      <footer class="footer">
+        <div class="footer-issue">
+          <span>HTML PPT GALLERY</span><strong>Issue 01</strong>
+        </div>
+        <div class="footer-copy">
+          <span>총 <span data-deck-count>74</span>개의 HTML 프레젠테이션을 모은 인터랙티브 아카이브.</span
+          ><b
+            >SOL EXTRA HIGH <span data-model-count="extra-high">03</span> · ULTRA <span data-model-count="ultra">01</span> · HIGH <span data-model-count="high">26</span> · MEDIUM <span data-model-count="medium">24</span> · LOW <span data-model-count="low">05</span><br />TERRA
+            HIGH <span data-model-count="terra-high">02</span> · MEDIUM <span data-model-count="terra-medium">04</span> · LOW <span data-model-count="terra-low">03</span> · CLAUDE OPUS 4.8 <span data-model-count="claude">04</span></b
+          >
+        </div>
+        <a
+          class="github-link"
+          href="https://github.com/mclub4/build-html-ppt"
+          target="_blank"
+          rel="noopener"
+          aria-label="Build HTML PPT 스킬 GitHub 저장소 새 탭에서 열기"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M12 .7A11.3 11.3 0 0 0 8.4 22.8c.6.1.8-.2.8-.5v-2c-3.4.7-4.1-1.4-4.1-1.4-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.8.1-.8 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-5.6 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.6.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.5.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.3-2.8 5.3-5.5 5.6.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5A11.3 11.3 0 0 0 12 .7Z"
+            />
+          </svg>
+          <span
+            ><small>THE SKILL BEHIND THE DECKS</small
+            ><b>Build HTML PPT on GitHub</b></span
+          ><i aria-hidden="true">↗</i>
+        </a>
+      </footer>
+    </div>
+
+    <section class="viewer" id="viewer" hidden aria-label="프레젠테이션 뷰어">
+      <div class="viewer-bar">
+        <button
+          class="close-viewer"
+          id="closeViewer"
+          type="button"
+          aria-label="프레젠테이션 닫고 목록으로 돌아가기"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="m15 18-6-6 6-6" /></svg
+          ><span>목록으로</span>
+        </button>
+        <span class="viewer-title"></span>
+        <span class="viewer-model" id="viewerModel"></span>
+        <button class="notes-toggle" id="notesToggle" type="button" aria-label="발표자 노트 열기" aria-controls="speakerNotes" aria-expanded="false" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h14v16H5zM8 8h8M8 12h8M8 16h5"/></svg><span>발표자 노트</span>
+        </button>
+        <a class="guide-open" id="guideOpen" href="#" target="_blank" rel="noopener" aria-label="새 탭에서 슬라이드 상세 해설 열기" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H11v16H6.5A2.5 2.5 0 0 0 4 21.5zM20 5.5A2.5 2.5 0 0 0 17.5 3H13v16h4.5a2.5 2.5 0 0 1 2.5 2.5z"/></svg><span>슬라이드 해설</span>
+        </a>
+        <button class="share-deck" id="shareDeck" type="button" aria-label="프레젠테이션 공유 링크 복사">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 10.5 6.8-4M8.6 13.5l6.8 4"/></svg>
+        </button>
+        <a
+          class="open-tab"
+          id="openTab"
+          href="#"
+          target="_blank"
+          rel="noopener"
+          aria-label="새 탭에서 프레젠테이션 열기"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M14 5h5v5M10 14 19 5M19 14v5H5V5h5" />
+          </svg>
+        </a>
+      </div>
+      <span class="share-feedback" id="shareFeedback" aria-live="polite"></span>
+      <div class="frame-wrap">
+        <div class="loader" aria-live="polite">
+          <span class="loader-spinner" aria-hidden="true"></span>
+          <strong>프레젠테이션 준비 중</strong>
+          <span>첫 화면을 불러오고 있습니다.</span>
+        </div>
+        <iframe
+          class="deck-frame"
+          id="deckFrame"
+          title="일본 여행 — 도시 너머의 풍경 프레젠테이션"
+          allow="fullscreen"
+        ></iframe>
+      </div>
+      <aside class="speaker-notes" id="speakerNotes" hidden aria-label="발표자 노트">
+        <header class="speaker-notes-head">
+          <div><small id="notesPosition">SLIDE NOTES</small><strong id="notesTitle">발표자 노트</strong></div>
+          <button class="notes-close" id="notesClose" type="button" aria-label="발표자 노트 닫기">×</button>
+        </header>
+        <div class="speaker-notes-body" id="notesBody" tabindex="0"></div>
+        <nav class="speaker-notes-nav" aria-label="발표자 노트 슬라이드 이동">
+          <button id="notesPrev" type="button">← 이전</button>
+          <button id="notesNext" type="button">다음 →</button>
+        </nav>
+      </aside>
+    </section>
+
+    <script src="cover-versions.js"></script>
+    <script src="notes-manifest.js"></script>
+    <script src="guide-manifest.js"></script>
+    <script>
+      (() => {
+        const highTierSlugs = new Set([
+          "subscription-economy-2026",
+          "korea-jobs-ai-transition",
+          "local-llm-complete-guide-v2",
+          "local-llm-field-guide",
+          "kakaotalk-llm-bot-guide",
+          "ai-leverage-stack",
+          "future-news-2050",
+          "japan-travel-guide",
+          "japan-convenience-food",
+          "east-asia-travel-selector",
+          "rescene-meme-guide",
+          "fourth-gen-girl-groups",
+          "car-camping-guide",
+          "camping-beginner-guide",
+          "fishing-field-guide",
+          "manosaba-guide",
+          "alien-invasion-scenario",
+          "msa-production-playbook",
+          "zelda-mainline-deck",
+          "stock-market-outlook-2026-07-15",
+          "youth-savings-2026",
+          "youth-support-guide-2026",
+          "board-game-night-guide",
+          "useless-ai-spectacle",
+          "home-cooking-favorites",
+          "food-trend-survival-report",
+          "sev-snp-confidential-computing",
+          "tsp-boj-2098",
+          "anime-30-guide",
+          "china-subculture-games-2026",
+          "subculture-game-trends-2026",
+          "haemu-sanatorium-escape",
+          "skyline-sprint",
+          "time-letter-vn",
+          "retro-games-memory",
+          "pokemon-generations",
+          "indie-games-25",
+          "kbo-beginner-guide",
+          "kafka-masterclass",
+          "cqrs-in-practice",
+          "understanding-bottleneck",
+          "observability-building-guide",
+          "guns-germs-steel-masterclass",
+          "world-wars-flow",
+          "seasonal-fashion-edit",
+          "elliptic-curve-beginner",
+          "whisky-masterclass",
+        ]);
+        const ultraTierSlugs = new Set([
+          "blockchain-beginner-deck",
+          "blockchain-advanced-course",
+        ]);
+        const extraHighTierSlugs = new Set([
+          "seoul-food-guide",
+          "quantum-computing-pqc-deck",
+          "hubble-network-observability-week6-20260730",
+        ]);
+        const lowTierSlugs = new Set([
+          "stock-beginner-guide",
+          "good-leader",
+          "damien-hirst-peek",
+          "costco-korea-honey-picks",
+          "ai-art-debate",
+          "academy-extra-survival",
+        ]);
+        const terraHighSlugs = new Set([
+          "figure-purchase",
+          "football-legends-30",
+        ]);
+        const terraMediumSlugs = new Set([
+          "foreign-rock-guide",
+          "ai-provider-war",
+          "weight-loss-guide",
+          "domestic-hot-spring-map",
+        ]);
+        const terraLowSlugs = new Set([
+          "parcel-journey",
+          "cold-war-space-race",
+          "musical-hero",
+          "hong-myungbo-biography",
+        ]);
+        const claudeSlugs = new Set([
+          "world-street-food",
+          "sul-guide",
+          "zkp-beginner-deck",
+          "animal-crossing-villagers",
+        ]);
+        const modelLabels = {
+          "extra-high": "GPT 5.6 SOL · EXTRA HIGH",
+          ultra: "GPT 5.6 SOL · ULTRA",
+          high: "GPT 5.6 SOL · HIGH",
+          medium: "GPT 5.6 SOL · MEDIUM",
+          low: "GPT 5.6 SOL · LOW",
+          "terra-high": "GPT 5.6 TERRA · HIGH",
+          "terra-medium": "GPT 5.6 TERRA · MEDIUM",
+          "terra-low": "GPT 5.6 TERRA · LOW",
+          claude: "CLAUDE OPUS 4.8",
+        };
+        const displayOrder = new Map(
+          [
+            "html-ppt-skill-manual",
+
+            // 여행 → 스포츠·건강
+            "domestic-hot-spring-map",
+            "japan-travel-guide",
+            "japan-convenience-food",
+            "east-asia-travel-selector",
+            "car-camping-guide",
+            "camping-beginner-guide",
+            "fishing-field-guide",
+            "f1-beginner-guide",
+            "kbo-beginner-guide",
+            "manchester-united-fan-recruitment",
+            "football-legends-30",
+            "hong-myungbo-biography",
+            "weight-loss-guide",
+
+            // AI·반도체 → 아키텍처 → 보안·암호 → 연구
+            "ai-provider-war",
+            "understanding-bottleneck",
+            "ai-leverage-stack",
+            "ai-era-testing",
+            "korea-jobs-ai-transition",
+            "kakaotalk-llm-bot-guide",
+            "local-llm-complete-guide-v2",
+            "local-llm-field-guide",
+            "ai-semiconductor-earnings-2026",
+            "steelmaking-beginner",
+            "msa-production-playbook",
+            "cilium-cni-deck",
+            "hubble-network-observability-week6-20260730",
+            "observability-building-guide",
+            "kafka-masterclass",
+            "cqrs-in-practice",
+            "quantum-computing-pqc-deck",
+            "sev-snp-confidential-computing",
+            "zkp-beginner-deck",
+            "elliptic-curve-beginner",
+            "blockchain-beginner-deck",
+            "blockchain-advanced-course",
+            "tsp-boj-2098",
+            "mars-base-autonomy",
+            "cancer-treatment-research-2026",
+
+            // 비즈니스·프로세스
+            "subscription-economy-2026",
+            "stock-beginner-guide",
+            "stock-market-outlook-2026-07-15",
+            "youth-savings-2026",
+            "youth-support-guide-2026",
+            "good-leader",
+            "parcel-journey",
+
+            // 언어·문학 → 음악 → 음식 → 미술·에세이
+            "english-real-life-expressions",
+            "japanese-real-life-expressions",
+            "demian-read-like-you-did",
+            "sherlock-holmes-deep-dive",
+            "guns-germs-steel-masterclass",
+            "world-wars-flow",
+            "kafka-punishment",
+            "afterlife-across-cultures",
+            "hallyu-kpop-flow",
+            "rescene-meme-guide",
+            "fourth-gen-girl-groups",
+            "jpop-night-guide",
+            "foreign-rock-guide",
+            "musical-hero",
+            "anime-30-guide",
+            "k-youtube-guide",
+            "food-trend-survival-report",
+            "world-cuisine-deck",
+            "home-cooking-favorites",
+            "world-street-food",
+            "seoul-food-guide",
+            "costco-korea-honey-picks",
+            "sul-guide",
+            "whisky-masterclass",
+            "cocktail-beginner-guide",
+            "korean-drinking-games",
+            "figure-purchase",
+            "seasonal-fashion-edit",
+            "anime-illustrator-gallery",
+            "damien-hirst-peek",
+            "ai-art-debate",
+            "city-at-4am",
+
+            // 디자인 → 역사·미래 시나리오
+            "portfolio-seoyoon",
+            "useless-ai-spectacle",
+            "future-news-2050",
+            "cold-war-space-race",
+            "alien-invasion-scenario",
+
+            // 게임은 마지막: 역사·산업 → 프랜차이즈 → 캐릭터 → 플레이 가이드 → 비주얼노벨
+            "retro-games-memory",
+            "goty-history-2014-2025",
+            "indie-games-25",
+            "coop-games-70",
+            "zelda-mainline-deck",
+            "pokemon-generations",
+            "switch2-promo",
+            "china-subculture-games-2026",
+            "subculture-game-trends-2026",
+            "blue-archive-promo-benchmark",
+            "blue-archive-cute-students",
+            "maplestory-2026-guide",
+            "animal-crossing-villagers",
+            "board-game-night-guide",
+            "manosaba-guide",
+            "haemu-sanatorium-escape",
+            "skyline-sprint",
+            "moonlit-oath-vn",
+            "academy-extra-survival",
+            "time-letter-vn",
+          ].map((slug, index) => [slug, index]),
+        );
+        const deckList = [
+          {
+            topic: "기술 · 연구",
+            slug: "korea-jobs-ai-transition",
+            file: "index.html",
+            title: "채용은 줄었고, 일은 갈라졌다",
+            kind: "Labor Market · Data Brief",
+            slides: 16,
+            coverFile: "korea-jobs-ai-transition.png",
+            description:
+              "고용24 모집인원, 민간 온라인 채용공고, 2032 취업자 전망을 분리해 한국의 직종별 증감 Top 10과 AI로 먼저 바뀔 업무를 짚은 데이터 브리프.",
+            tags: ["한국 채용시장", "AI 일자리", "직무 전망", "채용 데이터"],
+          },
+          {
+            topic: "기술 · 연구",
+            slug: "html-ppt-skill-manual",
+            file: "html-ppt-skill-manual.html",
+            title: "HTML PPT 스킬 사용설명서",
+            kind: "Guide · Skills",
+            slides: 24,
+            coverFile: "html-ppt-skill-manual.png",
+            description:
+              "Build HTML Slides의 특징과 기능, SKILL 개념, 좋은 요청법, Claude·Gemini CLI·ChatGPT 사용법, Humanize Korean·Archify 조합과 Cloudflare 배포까지 정리한 실전 안내서.",
+            tags: ["사용설명서", "AI 스킬", "HTML PPT"],
+            manual: true,
+          },
+          {
+            topic: "기술 · 연구",
+            slug: "local-llm-complete-guide-v2",
+            file: "local-llm-complete-guide-v2",
+            title: "Local LLM 설치·선정·활용 완전 가이드",
+            kind: "Field Guide · Research",
+            slides: 25,
+            coverFile: "local-llm-complete-guide-v2.png",
+            description:
+              "Ollama와 Qwen·Gemma의 역할부터 공개 tok/s 읽는 법, 장비별 메모리, 로그·이상거래·RAG·에이전트 실용성, 클라우드 비용 가정과 Colibri 사례까지 검증한 Local LLM 연구 가이드.",
+            tags: ["Local LLM", "Qwen·Gemma", "RAG·에이전트", "성능·비용"],
+          },
+          {
+            topic: "기술 · 연구",
+            slug: "local-llm-field-guide",
+            file: "local-llm-field-guide.html",
+            title: "Local LLM 실전 가이드",
+            kind: "Field Guide · Research",
+            slides: 26,
+            coverFile: "local-llm-field-guide.png",
+            description:
+              "하드웨어별 모델 선택부터 Ollama·LM Studio·llama.cpp·MLX·vLLM 설치, API·RAG·보안, Colibri 744B 검증까지 담은 Local LLM 실전 가이드.",
+            tags: ["Local LLM", "Ollama", "Colibri", "설치 가이드"],
+          },
+          {
+            topic: "문화 · 음식 · 예술",
+            slug: "k-youtube-guide",
+            file: "index.html",
+            title: "오늘 뭐 보지? — 한국 유튜버 66",
+            kind: "Culture · Creator Field Guide",
+            slides: 14,
+            coverFile: "k-youtube-guide.webp",
+            description:
+              "게임·요리·여행·먹방·음악·IT·스케치코미디·버튜버까지, 11개 장르에서 여섯 채널씩 고른 한국 유튜버 66선.",
+            tags: ["유튜버 추천", "버튜버", "채널 큐레이션", "한국 유튜브"],
+          },
+          {
+            topic: "디자인 · 시나리오",
+            slug: "useless-ai-spectacle",
+            file: "useless-ai-spectacle.html",
+            title: "무용함의 초신성 — 극한 혼돈 실험",
+            kind: "Interactive · Chaos Lab",
+            slides: 20,
+            coverFile: "useless-ai-spectacle.png",
+            description:
+              "블록 파괴, 춤추는 외계인, 물고기 폭주, 큐브 비, 레이저와 블랙홀을 중첩하는 기술 한계 체험용 인터랙티브 덱.",
+            tags: ["인터랙티브", "CSS 애니메이션", "혼돈"],
+          },
+          {
+            topic: "디자인 · 시나리오",
+            slug: "future-news-2050",
+            file: "future-news-2050-v2.html",
+            title: "2050년 1월 1일, 미래신문",
+            kind: "Future · Newspaper",
+            slides: 9,
+            coverFile: "future-news-2050-v2.png",
+            description:
+              "궤도 출근과 기후 적응, 기억권과 달 여행이 일상이 된 2050년의 새해 첫 신문.",
+            tags: ["미래신문", "2050", "에디토리얼"],
+          },
+          {
+            topic: "여행",
+            slug: "domestic-hot-spring-map",
+            file: "index.html",
+            title: "국내 온천 지도 — 물길 따라 쉬는 여행",
+            kind: "Travel · Regional Guide",
+            slides: 12,
+            coverFile: "domestic-hot-spring-map.webp",
+            description:
+              "북부 산악권부터 충청·동남권까지, 실제 현장 사진과 함께 12개 온천 권역의 여행 결을 고르는 지도.",
+            tags: ["국내여행", "온천", "권역 지도"],
+          },
+          {
+            topic: "여행",
+            slug: "japan-travel-guide",
+            file: "japan-travel-guide.html",
+            title: "일본 여행 — 도시 너머의 풍경",
+            kind: "Travel · Editorial",
+            slides: 33,
+            description:
+              "대도시의 속도부터 작은 마을의 저녁까지, 일본의 여덟 지방과 40여 도시를 잇는 여행 안내서.",
+            tags: ["여행", "매거진", "에디토리얼"],
+          },
+          {
+            topic: "문화 · 음식 · 예술",
+            slug: "japan-convenience-food",
+            file: "japan-convenience-food.html",
+            title: "일본 편의점 실명 맛지도",
+            kind: "Food · Travel Field Guide",
+            slides: 21,
+            coverFile: "japan-convenience-food.webp",
+            description:
+              "하겐다즈 럼레이즌부터 세븐 스무디, 파미치키, 로손 롤케이크까지 실제 제품 28종을 편의점별로 고른 21장 미식 가이드.",
+            tags: ["일본 편의점", "실제 제품 추천", "여행 미식"],
+          },
+          {
+            topic: "음악 · 공연",
+            slug: "musical-hero",
+            file: "musical-hero.html",
+            title: "뮤지컬 《영웅》 — 무대가 기억하는 마지막 1년",
+            kind: "Musical · Editorial Essay",
+            slides: 10,
+            coverFile: "musical-hero.jpg",
+            description:
+              "안중근의 마지막 1년을 다룬 창작 뮤지컬 《영웅》을 역사·서사·무대 언어·공연 기록으로 읽는 10장 에디토리얼.",
+            tags: ["뮤지컬", "안중근", "한국 창작극"],
+          },
+          {
+            topic: "여행",
+            slug: "east-asia-travel-selector",
+            file: "east-asia-travel-selector.html",
+            title: "이번엔 어디로 갈까 — 세계 8색 여행",
+            kind: "Travel · Comparison",
+            slides: 16,
+            coverFile: "east-asia-travel-selector-world8-v2.webp",
+            description:
+              "일본·중국·홍콩·대만·태국·베트남·스위스·스페인을 분위기, 음식, 휴가 길이, 동행 기준으로 비교한 여행 가이드.",
+            tags: ["세계여행", "여행 비교", "휴가 선택"],
+          },
+          {
+            topic: "여행",
+            slug: "car-camping-guide",
+            file: "car-camping-guide.html",
+            title: "차박, 어디로 갈까?",
+            kind: "Travel · Comparison",
+            slides: 14,
+            description:
+              "수도권·강원·충청의 차박지 7곳을 접근성, 풍경, 편의시설 기준으로 비교한 실전 가이드.",
+            tags: ["차박", "여행", "비교"],
+          },
+          {
+            topic: "여행",
+            slug: "camping-beginner-guide",
+            file: "camping-beginner-guide.html",
+            title: "처음 캠핑, 이대로 가면 된다",
+            kind: "Outdoor · Beginner Guide",
+            slides: 15,
+            coverFile: "camping-beginner-guide.webp",
+            description:
+              "캠핑 방식과 장소 고르기부터 준비물, 설치, 음식, 안전, 매너까지 첫 1박 2일 흐름으로 익히는 입문서.",
+            tags: ["캠핑 입문", "준비물", "캠핑 음식", "안전"],
+          },
+          {
+            topic: "스포츠",
+            slug: "fishing-field-guide",
+            file: "fishing-field-guide.html",
+            title: "물가에 서는 법 — 낚시 실전 가이드",
+            kind: "Fishing · Field Guide",
+            slides: 18,
+            coverFile: "fishing-field-guide.webp",
+            description:
+              "첫 출조 준비부터 찌·루어·원투·선상·갯바위, 안전과 법규, 국내 대표 포인트까지 이어지는 낚시 실전 안내서.",
+            tags: ["낚시", "입문", "안전", "국내 포인트"],
+          },
+          {
+            topic: "스포츠",
+            slug: "f1-beginner-guide",
+            file: "f1-beginner-guide.html",
+            title: "F1 입문 가이드 — 300km/h짜리 체스",
+            kind: "Sports · Explainer",
+            slides: 16,
+            description:
+              "처음 보는 사람도 레이스의 흐름과 전략을 읽을 수 있게 만든 몰입형 F1 입문서.",
+            tags: ["스포츠", "인포그래픽", "입문"],
+          },
+          {
+            topic: "스포츠",
+            slug: "kbo-beginner-guide",
+            file: "kbo-beginner-guide.html",
+            title: "처음이라 더 재밌다 — 한국 야구 입문 가이드",
+            kind: "Sports · Rookie Guide",
+            slides: 19,
+            coverFile: "kbo-beginner-guide.webp",
+            description:
+              "공 하나를 읽는 법부터 10개 구단, TVING 시청, 응원석 문화와 첫 직관 준비까지 이어지는 KBO 입문서.",
+            tags: ["KBO", "야구 입문", "직관", "10개 구단"],
+          },
+          {
+            topic: "건강",
+            slug: "weight-loss-guide",
+            file: "index.html",
+            title: "지속 가능한 감량 설계",
+            kind: "Health · Evidence Guide",
+            slides: 11,
+            coverFile: "weight-loss-guide-20260716-v2.jpg",
+            description:
+              "식단·유산소·근력·기록을 한 시스템으로 묶어, 무리하지 않고 이어 가는 체중 감량 전략.",
+            tags: ["운동", "식단", "체중관리"],
+          },
+          {
+            topic: "스포츠",
+            slug: "manchester-united-fan-recruitment",
+            file: "manchester-united-fan-recruitment.html",
+            title: "맨체스터 유나이티드, 왜 좋아하냐고?",
+            kind: "Sports · Storytelling",
+            slides: 12,
+            description:
+              "역사와 전설, 올드 트래퍼드의 분위기로 새로운 팬을 설득하는 서사형 프레젠테이션.",
+            tags: ["축구", "스토리텔링", "팬덤"],
+          },
+          {
+            topic: "스포츠",
+            slug: "football-legends-30",
+            file: "football-legends-30.html",
+            title: "전설적인 축구 선수 30인",
+            kind: "Sports · Legend Archive",
+            slides: 14,
+            coverFile: "football-legends-30.png",
+            description:
+              "펠레부터 메시·호날두까지, 시대를 바꾼 30명의 장면과 축구의 언어를 사진 중심으로 읽는 레전드 아카이브.",
+            tags: ["축구", "레전드", "30인"],
+          },
+          {
+            topic: "스포츠",
+            slug: "hong-myungbo-biography",
+            file: "hong-myungbo-biography.html",
+            title: "홍명보 — 승리와 책임 사이",
+            kind: "Sports · Biography",
+            slides: 18,
+            coverFile: "hong-myungbo-biography-20260718.jpg",
+            description:
+              "선수와 주장, 행정가와 감독으로 이어진 홍명보의 축구 인생을 승리와 책임이라는 두 축으로 읽는 인물 전기.",
+            tags: ["홍명보", "한국 축구", "인물 전기"],
+          },
+          {
+            topic: "기술 · 연구",
+            slug: "ai-semiconductor-earnings-2026",
+            file: "ai-semiconductor-earnings-2026-cover-v2.html",
+            title: "AI 반도체 실적판",
+            kind: "Business · Data",
+            slides: 18,
+            coverFile: "ai-semiconductor-earnings-2026-cover-v2.jpg",
+            description:
+              "AI 인프라 시장을 움직이는 반도체·장비·전력 기업의 실적과 흐름을 시각화한 리포트.",
+            tags: ["비즈니스", "데이터", "테크"],
+          },
+          {
+            topic: "기술 · 연구",
+            slug: "steelmaking-beginner",
+            file: "steelmaking-beginner.html",
+            title: "돌에서 강판까지 — 스틸메이킹 입문",
+            kind: "Manufacturing · Beginner Guide",
+            slides: 15,
+            coverFile: "steelmaking-beginner.webp",
+            description:
+              "철광석과 고철이 녹고, 정련되고, 굳고, 압연되어 철강 제품이 되는 흐름을 BF–BOF와 EAF 두 경로로 설명하는 입문 덱.",
+            tags: ["스틸메이킹", "제철·제강", "BF–BOF·EAF"],
+          },
+          {
+            topic: "기술 · 연구",
+            slug: "cilium-cni-deck",
+            file: "cilium-cni-why.html",
+            title: "Cilium CNI를 선택해야 하는 이유",
+            kind: "Tech · Architecture",
+            slides: 22,
+            coverFile: "cilium-cni-deck-ebpf-dataplane.png",
+            description:
+              "쿠버네티스 네트워킹과 보안, 관측성 관점에서 Cilium의 선택 근거를 설명하는 기술 덱.",
+            tags: ["Kubernetes", "Cilium", "아키텍처"],
+          },
+          {
+            topic: "기술 · 연구",
+            slug: "hubble-network-observability-week6-20260730",
+            file: "hubble-network-observability-week6.html",
+            title: "Hubble로 Kubernetes 네트워크 관측하기",
+            kind: "Cloud Native · Deep Dive",
+            slides: 30,
+            coverFile: "hubble-network-observability-week6-20260730.webp",
+            description:
+              "Hubble Architecture와 Relay부터 Flow·Policy Verdict·DNS·HTTP·Exporter·Prometheus·Grafana·OpenBao OIDC까지 다루는 DevOps 스터디 덱.",
+            tags: ["Hubble", "Cilium", "DevOps", "네트워크 관측"],
+          },
+          {
+            topic: "기술 · 연구",
+            slug: "observability-building-guide",
+            file: "observability-building-guide.html",
+            title: "Observability 구축을 설계하는 법",
+            kind: "Cloud Native · Architecture",
+            slides: 18,
+            coverFile: "observability-building-guide-20260717.png",
+            description:
+              "OpenTelemetry의 역할부터 Metrics Backend, 로그 수집기·Storage, Trace Backend, Kubernetes 계측, Storage·HA까지 스택별 장단점을 비교한 설계 가이드.",
+            tags: ["Observability", "OpenTelemetry", "Kubernetes", "HA"],
+          },
+          {
+            topic: "기술 · 연구",
+            slug: "kafka-masterclass",
+            file: "kafka-masterclass.html",
+            title: "Kafka Masterclass — 로그에서 합의까지",
+            kind: "Distributed Systems · Architecture",
+            slides: 26,
+            coverFile: "kafka-masterclass.jpg",
+            description:
+              "파티션·복제·멱등성·트랜잭션·Consumer Group·리밸런싱·KRaft를 동작 원리와 장애 경계로 연결한 Kafka 마스터클래스.",
+            tags: ["Kafka", "분산 시스템", "KRaft", "Exactly-Once"],
+          },
+          {
+            topic: "기술 · 연구",
+            slug: "cqrs-in-practice",
+            file: "cqrs-in-practice.html",
+            title: "CQRS — 결정하는 모델과 보여주는 모델",
+            kind: "Distributed Systems · Architecture",
+            slides: 26,
+            coverFile: "cqrs-in-practice.webp",
+            description:
+              "CQRS의 정의와 DB Replication 차이, Event Sourcing·Outbox·최종적 일관성, 배민·금융·SaaS·현장 시스템·게임·재고 사례를 한 흐름으로 설명한 실전 아키텍처 덱.",
+            tags: ["CQRS", "Event Sourcing", "DB Replication", "분산 시스템"],
+          },
+          {
+            topic: "기술 · 연구",
+            slug: "msa-production-playbook",
+            file: "msa-production-playbook.html",
+            title: "MSA 운영 설계 플레이북",
+            kind: "Tech · Architecture",
+            slides: 25,
+            description:
+              "서비스 경계부터 장애 격리와 데이터 일관성까지, 운영 가능한 MSA의 구조를 설계하는 아키텍처 가이드.",
+            tags: ["MSA", "아키텍처", "운영 설계"],
+          },
+          {
+            topic: "기술 · 연구",
+            slug: "cancer-treatment-research-2026",
+            file: "cancer-treatment-research-2026.html",
+            title: "암 치료 연구 결과 2026",
+            kind: "Science · Research",
+            slides: 12,
+            description:
+              "최신 암 치료 연구의 핵심 결과를 의료·연구 발표 형식으로 정리한 사이언스 프레젠테이션.",
+            tags: ["연구", "의료", "사이언스"],
+          },
+          {
+            topic: "기술 · 연구",
+            slug: "mars-base-autonomy",
+            file: "mars-base-autonomy.html",
+            title: "화성 기지 완전 자율 운영 시스템",
+            kind: "Space · Systems",
+            slides: 13,
+            description:
+              "통신 지연과 극한 환경을 전제로 설계한 화성 기지 자율 운영 시스템 아키텍처.",
+            tags: ["우주", "시스템 설계", "미래"],
+          },
+          {
+            topic: "기술 · 연구",
+            slug: "understanding-bottleneck",
+            file: "understanding-bottleneck.html",
+            title: "이제 병목은 코드가 아니라 이해다",
+            kind: "AI Coding · Field Guide",
+            slides: 20,
+            coverFile: "understanding-bottleneck.png",
+            description:
+              "AI 에이전트가 쓴 코드를 사람이 이해하고 다음 아이디어로 이어 가는 방법을 설명·퀴즈·마이크로월드·공유 공간으로 정리한 실전 가이드.",
+            tags: ["AI 코딩", "인지 부채", "개발자 생산성"],
+          },
+          {
+            topic: "기술 · 연구",
+            slug: "ai-provider-war",
+            file: "ai-provider-war-v2.html",
+            title: "AI 제공자 대난투 2막",
+            kind: "AI · Comparison",
+            slides: 8,
+            description:
+              "주요 AI 제공자의 성격과 강점을 대결 구도로 압축해 비교한 짧고 강한 테크 프레젠테이션.",
+            tags: ["AI", "모델 비교", "테크"],
+          },
+          {
+            topic: "기술 · 연구",
+            slug: "ai-era-testing",
+            file: "ai-era-testing.html",
+            title: "AI 시대의 테스트 코드 — 무엇을, 어떻게, 얼마나 믿을까",
+            kind: "Software Testing · Field Guide",
+            slides: 26,
+            coverFile: "ai-era-testing-v2.webp",
+            description:
+              "테스트 종류를 위험에 맞춰 고르는 법부터 AI와의 독립 검증, 실패 관측성, mutation·flake·진단 시간 기반 품질 측정까지 잇는 실전 필드 가이드.",
+            tags: ["소프트웨어 테스트", "AI 코딩", "관측성"],
+          },
+          {
+            topic: "기술 · 연구",
+            slug: "ai-leverage-stack",
+            file: "ai-leverage-stack.html",
+            title: "AI를 갈구는 기술 스택",
+            kind: "AI · Systems Field Guide",
+            slides: 31,
+            coverFile: "ai-leverage-stack-control-engine.png",
+            description:
+              "RAG·그래프·메모리·스킬·에이전트 메시·하네스·평가를 실패 유형별 최소 처방과 운영 구조로 엮은 확장 필드 가이드.",
+            tags: ["AI 에이전트", "RAG", "하네스"],
+          },
+          {
+            topic: "기술 · 연구",
+            slug: "kakaotalk-llm-bot-guide",
+            file: "kakaotalk-llm-bot-guide.html",
+            title: "개인 카톡 × LLM 로컬 봇",
+            kind: "Windows Automation · Guide",
+            slides: 20,
+            coverFile: "kakaotalk-llm-bot-guide-personal-v2.png",
+            description:
+              "개인 카카오톡 PC 채팅을 Spy64 계열 감지 또는 Windows 알림·UI Automation으로 Claude/Codex CLI에 연결하는 로컬 자동화 가이드.",
+            tags: ["개인 카톡", "Windows UIA", "LLM CLI"],
+          },
+          {
+            topic: "기술 · 연구",
+            slug: "quantum-computing-pqc-deck",
+            file: "quantum-computing-pqc.html",
+            title: "양자컴퓨터와 암호학",
+            kind: "Science · Security",
+            slides: 18,
+            description:
+              "양자컴퓨터가 기존 암호에 미치는 영향과 전환기에 필요한 양자내성암호의 핵심을 설명합니다.",
+            tags: ["양자컴퓨터", "PQC", "보안"],
+          },
+          {
+            topic: "기술 · 연구",
+            slug: "sev-snp-confidential-computing",
+            file: "sev-snp-confidential-computing.html",
+            title: "Confidential Computing과 AMD SEV-SNP",
+            kind: "Security · Explainer",
+            slides: 15,
+            coverFile: "sev-snp-confidential-computing.png",
+            description:
+              "호스트를 신뢰 경계에서 제외하는 SEV-SNP의 메모리 보호·Attestation과 HSM 기반 키 관리 역할을 설명합니다.",
+            tags: ["SEV-SNP", "Confidential Computing", "HSM"],
+          },
+          {
+            topic: "기술 · 연구",
+            slug: "zkp-beginner-deck",
+            file: "zkp-beginner-20260716-clean.html",
+            title: "영지식 증명 — 비밀을 말하지 않고 증명하기",
+            kind: "Cryptography · Explainer",
+            slides: 17,
+            coverFile: "zkp-beginner-deck-20260716-clean.jpg",
+            description:
+              "비밀 자체를 공개하지 않고도 사실을 증명하는 영지식 증명의 직관과 활용을 풀어낸 입문서.",
+            tags: ["ZKP", "암호학", "입문"],
+          },
+          {
+            topic: "기술 · 연구",
+            slug: "elliptic-curve-beginner",
+            file: "elliptic-curve-beginner.html",
+            title: "타원곡선 쉽게 이해하기 — 점을 더하는 암호의 세계",
+            kind: "Cryptography · Beginner Guide",
+            slides: 20,
+            coverFile: "elliptic-curve-beginner.webp",
+            description:
+              "영지식 증명에서 본 Q=kG와 C=vG+rH를 출발점으로, mod p의 유한체·점 덧셈·순환군·order·cofactor·Pedersen commitment를 그림으로 풀어낸 입문서.",
+            tags: ["타원곡선", "ECC", "Pedersen commitment", "암호학 입문"],
+          },
+          {
+            topic: "기술 · 연구",
+            slug: "blockchain-beginner-deck",
+            file: "blockchain-beginner.html",
+            title: "블록체인은 왜 믿을 수 있을까?",
+            kind: "Blockchain · Explainer",
+            slides: 28,
+            coverFile: "blockchain-beginner-deck.png",
+            description:
+              "장부·해시·서명·합의에서 스마트 컨트랙트, 가스비, 월렛, 토큰과 Web3·Web4까지 이어지는 블록체인 입문 수업.",
+            tags: ["블록체인", "Web3", "입문"],
+          },
+          {
+            topic: "기술 · 연구",
+            slug: "blockchain-advanced-course",
+            file: "blockchain-advanced-course",
+            title: "블록체인 심화: 안전한 월렛 전송 설계",
+            kind: "Blockchain · Advanced Course",
+            slides: 24,
+            coverFile: "blockchain-advanced-course.webp",
+            description:
+              "월렛 전송을 사례로 멱등성, Outbox, Policy 이중 평가, 서명 권한, finality와 장애 복구를 익히는 팀 온보딩 과정.",
+            tags: ["블록체인", "심화", "월렛", "분산시스템", "보안"],
+          },
+          {
+            topic: "기술 · 연구",
+            slug: "tsp-boj-2098",
+            file: "tsp-boj-2098.html",
+            title: "외판원 순회 문제 — 비트마스크 DP로 풀기",
+            kind: "Algorithm · Explainer",
+            slides: 13,
+            coverFile: "tsp-boj-2098.png",
+            description:
+              "외판원 순회 문제의 핵심부터 BOJ 2098 풀이를 위한 상태 설계, 점화식, 의사코드까지 단계별로 설명합니다.",
+            tags: ["TSP", "비트마스크 DP", "BOJ 2098"],
+          },
+          {
+            topic: "비즈니스 · 프로세스",
+            slug: "subscription-economy-2026",
+            file: "subscription-economy-2026.html",
+            title: "구독료가 오르면, 무엇을 남길까",
+            kind: "Market · Subscription Report",
+            slides: 20,
+            coverFile: "subscription-economy-2026.webp",
+            description:
+              "OTT·음악·쇼핑·클라우드에서 AI·가전까지, 최근 3년 가격 변화와 이탈·만족도·전망을 한 번에 비교합니다.",
+            tags: ["구독경제", "가격 인상", "이탈·만족도", "2026 전망"],
+          },
+          {
+            topic: "비즈니스 · 프로세스",
+            slug: "stock-beginner-guide",
+            file: "stock-beginner-guide.html",
+            title: "주식, 처음부터 천천히",
+            kind: "Finance · Beginner Guide",
+            slides: 12,
+            coverFile: "stock-beginner-guide-20260717.png",
+            description:
+              "계좌 개설과 첫 주문부터 ISA·ETF·공모주·선물·옵션·배당·세금까지 한 번에 익히는 주식 초보자용 실전 가이드.",
+            tags: ["주식", "ISA·ETF", "초보 투자"],
+          },
+          {
+            topic: "비즈니스 · 프로세스",
+            slug: "stock-market-outlook-2026-07-15",
+            file: "market-outlook-cover-v2.html",
+            title: "한·미 주식시장 — 급등락에서 살아남기",
+            kind: "Finance · Survival Guide",
+            slides: 20,
+            coverFile: "stock-market-outlook-20260716-v2.jpg",
+            description:
+              "급락과 반등이 교차하는 한국과 미국 시장을 점검하고, 추격 대신 오래 버티는 투자 운영 규칙을 정리합니다.",
+            tags: ["한·미 증시", "급등락장", "생존 전략"],
+          },
+          {
+            topic: "비즈니스 · 프로세스",
+            slug: "youth-savings-2026",
+            file: "youth-savings-2026.html",
+            title: "청년미래적금 vs 청년도약계좌",
+            kind: "Finance · Comparison Guide",
+            slides: 18,
+            coverFile: "youth-savings-2026-20260718.jpg",
+            description:
+              "가입 현황, 지원 구조, 만기·납입한도, 중도해지와 갈아타기 순서까지 두 청년 정책금융 상품을 한 번에 비교합니다.",
+            tags: ["청년미래적금", "청년도약계좌", "정책금융"],
+          },
+          {
+            topic: "비즈니스 · 프로세스",
+            slug: "youth-support-guide-2026",
+            file: "youth-support-guide-2026.html",
+            title: "청년지원제도 2026 — 놓치기 전에 찾는 법",
+            kind: "Policy · Practical Guide",
+            slides: 16,
+            coverFile: "youth-support-guide-2026.webp",
+            description:
+              "정장 대여·면접수당·자격증비부터 행복주택·월세지원·청년미래적금까지, 거주지와 현재 모집 상태로 찾는 실전 안내서.",
+            tags: ["청년정책", "취업지원", "주거·금융"],
+          },
+          {
+            topic: "비즈니스 · 프로세스",
+            slug: "good-leader",
+            file: "good-leader.html",
+            title: "좋은 리더란 무엇인가",
+            kind: "Leadership · Guide",
+            slides: 14,
+            description:
+              "팀이 스스로 성과를 내게 만드는 리더의 조건과 조직 운영 원칙을 간결하게 정리한 가이드.",
+            tags: ["리더십", "조직", "팀"],
+          },
+          {
+            topic: "비즈니스 · 프로세스",
+            slug: "parcel-journey",
+            file: "parcel-journey.html",
+            title: "택배 한 상자가 집에 오는 과정",
+            kind: "Logistics · Process",
+            slides: 8,
+            description:
+              "주문부터 허브 분류와 라스트마일까지, 택배 한 상자가 이동하는 과정을 시각적으로 따라갑니다.",
+            tags: ["물류", "프로세스", "배송"],
+          },
+          {
+            topic: "문화 · 음식 · 예술",
+            slug: "demian-read-like-you-did",
+            file: "demian-read-like-you-did.html",
+            title: "데미안 — 읽은 사람처럼 말하는 법",
+            kind: "Literature · Reading Guide",
+            slides: 18,
+            coverFile: "demian-read-like-you-did.webp",
+            description:
+              "줄거리부터 두 세계, 카인의 표식, 아브락사스, 융 심리학과 대화용 해석까지 한 번에 익히는 『데미안』 독서 가이드.",
+            tags: ["데미안", "헤르만 헤세", "문학"],
+          },
+          {
+            topic: "문화 · 음식 · 예술",
+            slug: "english-real-life-expressions",
+            file: "english-real-life-expressions.html",
+            title: "말문이 트이는 생활 영어",
+            kind: "Language · Learning",
+            slides: 18,
+            coverFile: "english-real-life-expressions.jpg",
+            description:
+              "기본 문법은 알지만 말문이 막히는 학습자를 위해 카페·식당·역·직장·친구·전화·긴급 상황의 영어 표현을 장면별로 익히는 수업형 덱.",
+            tags: ["영어", "생활 표현", "교육"],
+          },
+          {
+            topic: "문화 · 음식 · 예술",
+            slug: "japanese-real-life-expressions",
+            file: "japanese-real-life-expressions.html",
+            title: "장면으로 익히는 생활 일본어",
+            kind: "Language · Learning",
+            slides: 18,
+            description:
+              "히라가나·가타카나 이후, 편의점·식당·역·직장·친구·방문 장면에서 실제로 고르는 일본어 표현을 익히는 수업형 덱.",
+            tags: ["일본어", "생활 표현", "교육"],
+          },
+          {
+            topic: "문화 · 음식 · 예술",
+            slug: "sherlock-holmes-deep-dive",
+            file: "index.html",
+            title: "셜록 홈즈 — 정전, 갈등, 팬덤의 역사",
+            kind: "Literature · Deep Dive",
+            slides: 18,
+            coverFile: "sherlock-holmes-deep-dive.png",
+            description:
+              "정전의 범위부터 코난 도일의 갈등, 인물 관계와 팬덤의 계보까지 18장으로 읽는 셜록 홈즈 심층 탐구.",
+            tags: ["셜록 홈즈", "문학", "팬덤"],
+          },
+          {
+            topic: "문화 · 음식 · 예술",
+            slug: "hallyu-kpop-flow",
+            file: "hallyu-kpop-flow.html",
+            title: "한류와 K-Pop — 무시할 수 없는 흐름",
+            kind: "Culture · Report",
+            slides: 11,
+            description:
+              "K-Pop이 세계의 취향과 산업 지형을 바꾸는 과정을 압축한 문화 트렌드 리포트.",
+            tags: ["K-Pop", "문화", "트렌드"],
+          },
+          {
+            topic: "문화 · 음식 · 예술",
+            slug: "kafka-punishment",
+            file: "kafka-punishment.html",
+            title: "카프카의 주인공들은 왜 이유도 모른 채 벌을 받는가",
+            kind: "Literature · Essay",
+            slides: 11,
+            coverFile: "kafka-punishment.png",
+            description:
+              "《변신》, 《심판》, 《성》을 관료제·소외·불안의 축으로 읽으며 이유 없는 처벌의 구조를 추적하는 문학 에세이.",
+            tags: ["카프카", "문학", "사회비평"],
+          },
+          {
+            topic: "문화 · 음식 · 예술",
+            slug: "rescene-meme-guide",
+            file: "rescene-meme-guide.html",
+            title: "RESCENE — 밈으로 입덕하는 다섯 장면",
+            kind: "Music · Promotion",
+            slides: 16,
+            description:
+              "밈으로 시작해 음악과 멤버의 매력으로 이어지는 걸그룹 RESCENE 프로모션 가이드.",
+            tags: ["음악", "프로모션", "팬 콘텐츠"],
+          },
+          {
+            topic: "문화 · 음식 · 예술",
+            slug: "fourth-gen-girl-groups",
+            file: "fourth-gen-girl-groups.html",
+            title: "4세대 여자 아이돌 — 여덟 개의 입구",
+            kind: "Music · Listening Guide",
+            slides: 14,
+            coverFile: "fourth-gen-girl-groups-20260717.webp",
+            description:
+              "i-dle부터 NewJeans까지, 실제 그룹 사진과 입문곡으로 4세대 걸그룹의 서로 다른 문법을 빠르게 비교하는 청취 가이드.",
+            tags: ["K-Pop", "걸그룹", "입문 가이드"],
+          },
+          {
+            topic: "문화 · 음식 · 예술",
+            slug: "foreign-rock-guide",
+            file: "foreign-rock-guide.html",
+            title: "외국 록밴드 입문 가이드",
+            kind: "Music · Guide",
+            slides: 10,
+            description:
+              "여섯 밴드와 열두 곡으로 해외 록의 서로 다른 결을 빠르게 경험하는 청취 입문 가이드.",
+            tags: ["록밴드", "음악", "입문"],
+          },
+          {
+            topic: "문화 · 음식 · 예술",
+            slug: "jpop-night-guide",
+            file: "jpop-night-guide-v2.html",
+            title: "JPOP, 오늘 밤의 여덟 목소리",
+            kind: "Music · Night Guide",
+            slides: 13,
+            coverFile: "jpop-night-guide-20260716-v2.jpg",
+            description:
+              "YOASOBI부터 요네즈 켄시와 Ado까지, 서로 다른 여덟 목소리로 JPOP의 입구를 여는 밤의 청취 가이드.",
+            tags: ["JPOP", "음악", "입문 가이드"],
+          },
+          {
+            topic: "문화 · 음식 · 예술",
+            slug: "anime-30-guide",
+            file: "anime-30-guide.html",
+            version: "androidfix-20260717-3",
+            title: "오늘 뭐 보지? — 애니메이션 30선",
+            kind: "Anime · S/A/B Guide",
+            slides: 14,
+            coverFile: "anime-30-guide-20260716.jpg",
+            description:
+              "S·A·B 세 등급에서 고른 30편을 포스터와 한 줄 감상 포인트로 비교하고, 오늘 볼 한 편까지 빠르게 고르는 애니메이션 추천 가이드.",
+            tags: ["애니메이션", "S·A·B", "30선"],
+          },
+          {
+            topic: "문화 · 음식 · 예술",
+            slug: "food-trend-survival-report",
+            file: "index.html",
+            title: "유행 음식 생존 보고서",
+            kind: "Trend · Market Report",
+            slides: 16,
+            coverFile: "food-trend-survival-report.webp",
+            description:
+              "2016년부터 2026년까지 유행 음식 8종을 검색 관심, 점포, 프랜차이즈, 지속 기간으로 추적해 몰락과 정착의 조건을 가린 시장 보고서.",
+            tags: ["음식 트렌드", "프랜차이즈", "시장 분석"],
+          },
+          {
+            topic: "문화 · 음식 · 예술",
+            slug: "world-cuisine-deck",
+            file: "world-cuisine.html",
+            title: "세계 음식과 맛의 문법",
+            kind: "Food · Culture",
+            slides: 12,
+            description:
+              "지역마다 다른 재료와 조리법이 어떻게 하나의 맛의 문법이 되는지 탐험하는 미식 기행.",
+            tags: ["음식", "문화", "여행"],
+          },
+          {
+            topic: "문화 · 음식 · 예술",
+            slug: "home-cooking-favorites",
+            file: "home-cooking-favorites.html",
+            title: "집에서 따라 하는 맛있는 요리",
+            kind: "Food · Home Cooking",
+            slides: 12,
+            coverFile: "home-cooking-favorites-v2.jpg",
+            description:
+              "공개 Notion ‘식사 준비 도우미’에서 추천도 상을 받은 메뉴 중 제육볶음, 어향가지, 건두부 볶음 등 여섯 접시를 골라 정리한 집밥 가이드.",
+            tags: ["Notion 레시피", "집밥", "추천도 상"],
+          },
+          {
+            topic: "문화 · 음식 · 예술",
+            slug: "world-street-food",
+            file: "street-food.html",
+            title: "세계 길거리 음식 — 한 손에 드는 63가지",
+            kind: "Food · Atlas",
+            slides: 16,
+            description:
+              "서울에서 라고스까지, 13개 권역의 길거리 음식 63가지를 사진과 함께 훑는 글로벌 푸드 아틀라스.",
+            tags: ["길거리 음식", "세계 미식", "푸드 아틀라스"],
+          },
+          {
+            topic: "문화 · 음식 · 예술",
+            slug: "seoul-food-guide",
+            file: "seoul-food-guide.html",
+            title: "서울 맛집 40 — 개인 평점 순",
+            kind: "Food · Ranking",
+            slides: 41,
+            description:
+              "서울 곳곳의 맛집 40곳을 개인 평점과 사진으로 정리한 방대한 로컬 미식 큐레이션.",
+            tags: ["서울 맛집", "랭킹", "푸드 가이드"],
+          },
+          {
+            topic: "문화 · 음식 · 예술",
+            slug: "costco-korea-honey-picks",
+            file: "costco-korea-honey-picks.html",
+            coverFile: "costco-korea-honey-picks-v70.jpg",
+            title: "한국 코스트코 개꿀템 70",
+            kind: "Shopping · Curation",
+            slides: 18,
+            description:
+              "한국 코스트코에서 다시 살 만한 식품과 생활용품 70개를 보관·소분·소진 기준으로 정리한 쇼핑 큐레이션.",
+            tags: ["코스트코", "쇼핑", "추천"],
+          },
+          {
+            topic: "문화 · 음식 · 예술",
+            slug: "figure-purchase",
+            file: "figure-purchase-guide.html",
+            title: "처음 사는 피규어 구매 가이드",
+            kind: "Hobby · Buying Guide",
+            slides: 16,
+            coverFile: "figure-purchase-20260716-hina.jpg",
+            description:
+              "스케일 피규어부터 넨도로이드와 피그마까지, 유형·예산·구매처·관리법을 차근차근 비교하는 입문 가이드.",
+            tags: ["피규어", "구매 가이드", "취미"],
+          },
+          {
+            topic: "문화 · 음식 · 예술",
+            slug: "seasonal-fashion-edit",
+            file: "seasonal-fashion-edit.html",
+            title: "SEASONAL EDIT — 남녀 사계절 패션",
+            kind: "Fashion · Seasonal Editorial",
+            slides: 21,
+            coverFile: "seasonal-fashion-edit.webp",
+            description:
+              "여성과 남성의 봄·여름·가을·겨울 룩을 화보, 한 벌 공식, 캡슐 옷장으로 정리한 사계절 패션 매거진.",
+            tags: ["패션", "사계절", "캡슐 옷장"],
+          },
+          {
+            topic: "문화 · 음식 · 예술",
+            slug: "sul-guide",
+            file: "deck.html",
+            title: "술, 어디까지 먹어봤니?",
+            kind: "Beverage · Guide",
+            slides: 23,
+            description:
+              "사케와 위스키, 전통주, 칵테일, 와인을 취향과 난이도에 따라 탐험하는 주종별 가이드.",
+            tags: ["술", "주종 가이드", "취향"],
+          },
+          {
+            topic: "문화 · 음식 · 예술",
+            slug: "whisky-masterclass",
+            file: "index.html",
+            title: "위스키를 읽는 법",
+            kind: "Whisky · Masterclass",
+            slides: 23,
+            coverFile: "whisky-masterclass.webp",
+            description:
+              "위스키 종류, 캐스크, 피트, 라벨 읽기, 시음법, 물과 얼음, 추천 병과 비교 시음을 실제 사진으로 익히는 23장 가이드.",
+            tags: ["위스키", "시음", "캐스크", "피트", "버번"],
+          },
+          {
+            topic: "문화 · 음식 · 예술",
+            slug: "cocktail-beginner-guide",
+            file: "cocktail-beginner-guide.html",
+            title: "홈 칵테일 입문 가이드",
+            kind: "Beverage · Starter Manual",
+            slides: 24,
+            coverFile: "cocktail-beginner-guide.jpg",
+            description:
+              "맛의 구조와 필수 도구부터 셰이크·스터·9가지 클래식 레시피까지, 첫 홈 바를 만드는 칵테일 입문서.",
+            tags: ["칵테일", "홈 바", "레시피"],
+          },
+          {
+            topic: "문화 · 음식 · 예술",
+            slug: "anime-illustrator-gallery",
+            file: "anime-illustrator-gallery.html",
+            title: "ODDLY ALIVE — 애니메이션 감각의 일러스트레이터 5",
+            kind: "Art · Illustrator Gallery",
+            slides: 11,
+            coverFile: "anime-illustrator-gallery-20260717-v2.jpg",
+            description:
+              "테라다 테라, 람다람, channel., 이치마루, 왕냥푸의 보컬로이드 MV와 손그림 애니메이션 감각을 비교하는 일러스트레이터 갤러리.",
+            tags: ["일러스트레이터", "애니메이션", "작가 소개"],
+          },
+          {
+            topic: "문화 · 음식 · 예술",
+            slug: "damien-hirst-peek",
+            file: "damien-hirst-peek.html",
+            title: "데이미안 허스트 작품 훔쳐보기",
+            kind: "Art · Preview",
+            slides: 15,
+            description:
+              "상어와 스폿 페인팅부터 벚꽃 연작까지, 데이미안 허스트의 대표 작업을 가볍게 훑는 미술 입문서.",
+            tags: ["현대미술", "데이미안 허스트", "작품"],
+          },
+          {
+            topic: "문화 · 음식 · 예술",
+            slug: "city-at-4am",
+            file: "city-at-4am.html",
+            title: "새벽 4시의 도시 — 불빛은 누구를 위해 켜져 있는가",
+            kind: "Visual Essay · Full Validation",
+            slides: 12,
+            description:
+              "환대·이동·돌봄·준비·정리의 불빛을 따라, 새벽 도시를 떠받치는 사람들의 시간을 바라보는 사진 에세이.",
+            tags: ["비주얼 에세이", "새벽 도시", "사진"],
+          },
+          {
+            topic: "문화 · 음식 · 예술",
+            slug: "afterlife-across-cultures",
+            file: "afterlife-across-cultures-cover-v2.html",
+            title: "저승의 지도 — 문화는 죽음 뒤를 어떻게 그렸는가",
+            kind: "Culture · Comparative Atlas",
+            slides: 18,
+            coverFile: "afterlife-across-cultures-cover-v2.jpg",
+            description:
+              "이집트·그리스·북유럽·힌두·불교·동아시아·멕시카·아브라함계 전통의 저승을 입구, 심판, 지형, 시간의 네 축으로 비교합니다.",
+            tags: ["저승", "비교문화", "종교·신화"],
+          },
+          {
+            topic: "문화 · 음식 · 예술",
+            slug: "guns-germs-steel-masterclass",
+            file: "guns-germs-steel.html",
+            title: "총, 균, 쇠 — 문명을 가른 출발 조건",
+            kind: "History · Critical Reading",
+            slides: 18,
+            coverFile: "guns-germs-steel-masterclass.webp",
+            description:
+              "얄리의 질문부터 농업·대륙축·병원균·카하마르카의 인과 사슬, 그리고 역사학계의 비판까지 한 번에 잡는 『총, 균, 쇠』 비판적 독서 가이드.",
+            tags: ["총균쇠", "문명사", "비판적 독해"],
+          },
+          {
+            topic: "문화 · 음식 · 예술",
+            slug: "world-wars-flow",
+            file: "world-wars-flow.html",
+            title: "두 번의 세계대전, 하나의 미완성 평화",
+            kind: "History · Cause & Flow",
+            slides: 18,
+            coverFile: "world-wars-flow.png",
+            description:
+              "제1차 세계대전의 원인과 참호전, 베르사유 체제의 균열, 제2차 세계대전의 팽창과 전환점, 1945년 이후의 새 질서를 하나의 인과 흐름으로 읽는 역사 입문서.",
+            tags: ["세계대전", "근현대사", "원인과 결과"],
+          },
+          {
+            topic: "문화 · 음식 · 예술",
+            slug: "ai-art-debate",
+            file: "ai-art-debate-cover-v2.html",
+            title: "AI가 만든 예술도 예술인가",
+            kind: "Art · Debate",
+            slides: 12,
+            coverFile: "ai-art-debate-cover-v2.jpg",
+            description:
+              "AI 예술을 둘러싼 찬반 논거를 같은 무게로 놓고, 의도·선택·책임·맥락이라는 판단 기준으로 토론을 이끕니다.",
+            tags: ["AI 예술", "토론", "현대미술"],
+          },
+          {
+            topic: "디자인 · 시나리오",
+            slug: "portfolio-seoyoon",
+            file: "seoyoon-portfolio.html",
+            title: "이서윤 — Selected Works 2023–2026",
+            kind: "Design · Portfolio",
+            slides: 12,
+            description:
+              "브랜딩과 패키지, 공간 경험을 절제된 편집 디자인으로 엮은 디자이너 포트폴리오.",
+            tags: ["디자인", "포트폴리오", "브랜딩"],
+          },
+          {
+            topic: "디자인 · 시나리오",
+            slug: "alien-invasion-scenario",
+            file: "alien-invasion-scenario.html",
+            title: "침공 전야 — 세라프 군집의 12년",
+            kind: "Sci-Fi · Scenario",
+            slides: 18,
+            description:
+              "미확인 천체의 등장부터 전면 침공까지, 12년의 위기를 기록한 시네마틱 SF 시나리오.",
+            tags: ["SF", "시나리오", "시네마틱"],
+          },
+          {
+            topic: "디자인 · 시나리오",
+            slug: "cold-war-space-race",
+            file: "cold-war-space-race.html",
+            title: "궤도 위의 냉전 — 우주개발 경쟁",
+            kind: "History · Space",
+            slides: 12,
+            description:
+              "스푸트니크부터 달 착륙까지, 냉전의 경쟁이 우주개발의 속도와 상징을 바꾼 과정을 추적합니다.",
+            tags: ["냉전", "우주개발", "역사"],
+          },
+          {
+            topic: "게임",
+            slug: "pokemon-generations",
+            file: "index.html",
+            title: "포켓몬 30년의 진화",
+            kind: "Game · Generational Field Guide",
+            slides: 22,
+            coverFile: "pokemon-generations.webp",
+            description:
+              "1세대 관동부터 9세대 팔데아까지, 세대별 대표 게임과 시스템 변화, 공식 일러스트로 고른 대표 포켓몬 12종씩을 한 번에 훑습니다.",
+            tags: ["포켓몬", "게임사", "세대별 도감", "30주년"],
+          },
+          {
+            topic: "게임",
+            slug: "coop-games-70",
+            file: "index.html",
+            title: "친구들과 할 게임 70",
+            kind: "Game · Co-op Night Index",
+            slides: 17,
+            coverFile: "coop-games-70.webp",
+            description:
+              "둘이 하는 스토리 협동부터 16인 파티까지, 플레이 인원수와 플랫폼으로 바로 고르는 협동·멀티게임 70선.",
+            tags: ["협동게임", "멀티게임", "게임 추천", "친구 모임"],
+          },
+          {
+            topic: "게임",
+            slug: "retro-games-memory",
+            file: "index.html",
+            title: "우리의 게임은 로딩 중이었다",
+            kind: "Game · Memory Archive",
+            slides: 25,
+            coverFile: "retro-games-memory-slide-cover-v2.webp",
+            description:
+              "90~00년생이 지나온 PC방, 스타크래프트, 국산 온라인게임, 플래시, 피처폰, 콘솔과 휴대용 게임기의 풍경을 실제 공식 이미지와 함께 돌아봅니다.",
+            tags: ["추억의 게임", "PC방", "플래시", "피처폰"],
+          },
+          {
+            topic: "게임",
+            slug: "goty-history-2014-2025",
+            file: "goty-history-cover-v2.html",
+            title: "GOTY 2014–2025 — 뭐부터 해볼까?",
+            kind: "Game · Awards Almanac",
+            slides: 17,
+            coverFile: "goty-history-2014-2025-v2.jpg",
+            description:
+              "The Game Awards 역대 수상작과 후보를 연도별로 훑고, 지금 내 취향에 맞는 첫 GOTY를 고르는 게임 입문서.",
+            tags: ["GOTY", "게임사", "입문"],
+          },
+          {
+            topic: "게임",
+            slug: "indie-games-25",
+            file: "indie-games-25.html",
+            title: "밤을 훔치는 인디게임 32선",
+            kind: "Game · Curated Gallery",
+            slides: 18,
+            coverFile: "indie-games-25.webp",
+            description:
+              "스타듀 밸리·할로우 나이트·OMORI·마법소녀의 마법재판부터 PEAK·리썰 컴퍼니까지, 공식 게임 화면으로 고른 인디게임 32선.",
+            tags: ["인디게임", "게임 추천", "Steam", "큐레이션"],
+          },
+          {
+            topic: "게임",
+            slug: "maplestory-2026-guide",
+            file: "maplestory-2026.html",
+            title: "메이플스토리 2026 — 오늘 시작하는 모험",
+            kind: "Game · World Guide",
+            slides: 22,
+            description:
+              "직업 선택부터 최신 지역과 보스까지, 메이플 월드를 한눈에 훑는 게임 가이드.",
+            tags: ["게임", "가이드", "팬 콘텐츠"],
+          },
+          {
+            topic: "게임",
+            slug: "animal-crossing-villagers",
+            file: "deck.html",
+            title: "섬에서 만난 서른 명의 이웃",
+            kind: "Game · Character Atlas",
+            slides: 20,
+            description:
+              "동물의 숲 인기 주민 서른 명을 성격과 매력, 아미보 이미지로 소개하는 밝고 유쾌한 주민 도감.",
+            tags: ["동물의 숲", "주민 도감", "캐릭터"],
+          },
+          {
+            topic: "게임",
+            slug: "zelda-mainline-deck",
+            file: "zelda-mainline.html",
+            title: "젤다의 전설 — 40년의 모험",
+            kind: "Game · Timeline",
+            slides: 28,
+            description:
+              "초대작부터 최신작까지, 젤다의 전설 메인라인이 40년 동안 확장해 온 모험의 역사를 정리합니다.",
+            tags: ["젤다의 전설", "게임사", "타임라인"],
+          },
+          {
+            topic: "게임",
+            slug: "china-subculture-games-2026",
+            file: "china-subculture-games-2026.html",
+            title: "중국산 서브컬처 게임은 어떻게 판을 바꿨나",
+            kind: "Game · Industry Report",
+            slides: 18,
+            coverFile: "china-subculture-games-2026-20260716.jpg",
+            description:
+              "소녀전선과 원신에서 2026년 차기작까지, 중국 서브컬처 게임이 글로벌 제작 규모·운영·장르 문법을 바꾼 과정을 살펴봅니다.",
+            tags: ["중국 게임", "서브컬처", "산업 변화"],
+          },
+          {
+            topic: "게임",
+            slug: "subculture-game-trends-2026",
+            file: "subculture-game-trends-2026.html",
+            title: "2026년 서브컬처 게임 동향",
+            kind: "Game · Market Report",
+            slides: 17,
+            coverFile: "subculture-game-trends-2026.webp",
+            description:
+              "2025년 7월부터 2026년 6월까지 선정 32종 Steam 공개활동을 바탕으로 신규 진입, 활동 수축, 안정 유지, 회복 신호를 분석합니다.",
+            tags: ["서브컬처", "시장 분석", "Steam 공개활동", "운영 KPI"],
+          },
+          {
+            topic: "게임",
+            slug: "blue-archive-promo-benchmark",
+            file: "blue-archive-kivotos-keynote.html",
+            title: "블루 아카이브 — 세계가 커지는 RPG",
+            kind: "Game · Keynote",
+            slides: 15,
+            coverFile: "blue-archive-promo-benchmark-redesign-20260718.jpg",
+            description:
+              "학생을 알아 갈수록 키보토스가 커지는 경험을 키노트 스타일로 풀어낸 게임 소개 덱.",
+            tags: ["블루 아카이브", "키노트", "캐릭터"],
+          },
+          {
+            topic: "게임",
+            slug: "blue-archive-cute-students",
+            file: "blue-archive-cute-students-20260716-nong.html",
+            title: "블루 아카이브 — 귀여운 학생 소개",
+            kind: "Game · Character Guide",
+            slides: 28,
+            coverFile: "blue-archive-cute-students-20260716-nong.jpg",
+            description:
+              "키보토스의 학생 25명을 서로 다른 매력과 팬아트로 소개하는 캐릭터 도감.",
+            tags: ["블루 아카이브", "학생 도감", "팬아트"],
+          },
+          {
+            topic: "게임",
+            slug: "switch2-promo",
+            file: "switch2-promo-final.html",
+            title: "Nintendo Switch 2 — 게임부터 보면",
+            kind: "Product · Launch",
+            slides: 12,
+            description:
+              "스펙보다 플레이 경험을 먼저 보여주는 Nintendo Switch 2 세일즈 프레젠테이션.",
+            tags: ["게임", "제품", "세일즈"],
+          },
+          {
+            topic: "게임",
+            slug: "manosaba-guide",
+            file: "manosaba-spoiler-free-guide.html",
+            title: "마법소녀의 마녀재판 — 스포일러 없는 입문",
+            kind: "Game · Editorial",
+            slides: 15,
+            description:
+              "핵심 반전은 지키면서 세계관과 플레이 감각을 소개하는 스포일러 프리 입문 가이드.",
+            tags: ["게임", "입문", "에디토리얼"],
+          },
+          {
+            topic: "게임",
+            slug: "board-game-night-guide",
+            file: "board-game-night-guide.html",
+            title: "오늘 뭐 하지? — 보드게임 24선",
+            kind: "Board Game · Night Guide",
+            slides: 27,
+            coverFile: "board-game-night-guide-20260716.png",
+            description:
+              "실제 패키지와 플레이 사진을 곁들여 24개 보드게임의 인원, 시간, 핵심 재미와 첫 판 주의점을 고르는 모임용 큐레이션.",
+            tags: ["보드게임", "게임 추천", "모임 가이드"],
+          },
+          {
+            topic: "문화 · 음식 · 예술",
+            slug: "korean-drinking-games",
+            file: "deck.html",
+            title: "술게임 18 — 분위기는 올리고, 부담은 낮추고",
+            kind: "Party Game · Field Guide",
+            slides: 25,
+            version: "mobilefix-20260717-03",
+            coverFile: "korean-drinking-games.webp",
+            description:
+              "울트라 369부터 두부·잔치기·레코드까지, 18개 술게임의 규칙과 안전한 진행법을 바로 꺼내 쓰는 모임 가이드.",
+            tags: ["술게임", "파티 게임", "모임 가이드"],
+          },
+          {
+            topic: "게임",
+            slug: "moonlit-oath-vn",
+            file: "moonlit-oath.html",
+            title: "월식 아래, 네 이름을 불러",
+            kind: "Visual Novel · Interactive",
+            slides: 32,
+            coverFile: "moonlit-oath-vn-20260716-v4.png",
+            description:
+              "백발의 오드아이 사서 루미에라와 다섯 번의 선택을 쌓아 세 결말에 닿는 32장 장편 판타지 비주얼노벨.",
+            tags: ["비주얼노벨", "인터랙티브", "판타지"],
+          },
+          {
+            topic: "게임",
+            slug: "academy-extra-survival",
+            file: "index.html",
+            version: "20260724-veritas-v4",
+            title: "벨리타스의 비인가 플레이어",
+            kind: "Visual Novel · Fantasy Academy",
+            slides: 323,
+            coverFile: "veritas-unauthorized-player-cover-20260728.webp",
+            description:
+              "정답을 고르는 게임에서 삭제된 선택권을 되찾는 기록학과 신입생의 이야기. 100명의 인물, 281개 장면, 1,806개 내부 페이지로 이어지는 323장 장편 판타지 비주얼노벨.",
+            tags: ["비주얼노벨", "판타지 아카데미", "벨리타스"],
+          },
+          {
+            topic: "게임",
+            slug: "haemu-sanatorium-escape",
+            file: "haemu-sanatorium-escape.html",
+            title: "해무요양원: 03:17",
+            kind: "Horror · Escape Room",
+            slides: 9,
+            coverFile: "haemu-sanatorium-escape.png",
+            description:
+              "단서 탐색, 인벤토리 조합, 암호 입력, 전력 복구와 5초 추격을 풀어야만 다음 장면이 열리는 15분 공포 방탈출.",
+            tags: ["방탈출", "공포", "인터랙티브"],
+          },
+          {
+            topic: "게임",
+            slug: "skyline-sprint",
+            file: "skyline-sprint.html",
+            title: "SKYLINE SPRINT — 한 번만 더",
+            kind: "Game · Playable Canvas",
+            slides: 3,
+            coverFile: "skyline-sprint.webp",
+            description:
+              "네온 도시를 달리며 신호 장벽을 뛰어넘는 오리지널 브라우저 장애물 게임. Space·위쪽 화살표·클릭으로 바로 플레이합니다.",
+            tags: ["인터랙티브 게임", "Canvas", "오리지널"],
+          },
+          {
+            topic: "게임",
+            slug: "time-letter-vn",
+            file: "time-letter.html",
+            title: "시간을 건너, 네가 없는 봄",
+            kind: "Visual Novel · Linear Story",
+            slides: 31,
+            coverFile: "time-letter-vn-20260716.webp",
+            description:
+              "327년 전으로 떨어진 화자와 붉은 눈의 시간술사 세리아가 마지막 일주일을 함께 보내는 1인칭 비극 판타지 비주얼노벨.",
+            tags: ["비주얼노벨", "타임슬립", "로맨스"],
+          },
+        ]
+          .filter((deck) => deck.slug === "html-ppt-skill-manual")
+          .map((deck) => {
+            const model = extraHighTierSlugs.has(deck.slug)
+              ? "extra-high"
+              : ultraTierSlugs.has(deck.slug)
+                ? "ultra"
+                : highTierSlugs.has(deck.slug)
+                  ? "high"
+                  : lowTierSlugs.has(deck.slug)
+                    ? "low"
+                    : terraHighSlugs.has(deck.slug)
+                      ? "terra-high"
+                      : terraMediumSlugs.has(deck.slug)
+                        ? "terra-medium"
+                        : terraLowSlugs.has(deck.slug)
+                          ? "terra-low"
+                          : claudeSlugs.has(deck.slug)
+                            ? "claude"
+                            : "medium";
+            return {
+              ...deck,
+              coverFile: deck.coverFile || `${deck.slug}.jpg`,
+              model,
+              modelLabel: modelLabels[model],
+            };
+          })
+          .sort(
+            (a, b) =>
+              (displayOrder.get(a.slug) ?? Number.MAX_SAFE_INTEGER) -
+              (displayOrder.get(b.slug) ?? Number.MAX_SAFE_INTEGER),
+          );
+        const decks = Object.fromEntries(
+          deckList.map((deck) => [
+            deck.slug,
+            {
+              ...deck,
+              src: `decks/${deck.slug}/${deck.file}`,
+            },
+          ]),
+        );
+        const modelCounts = deckList.reduce((counts, deck) => {
+          counts[deck.model] = (counts[deck.model] || 0) + 1;
+          return counts;
+        }, {});
+        document.querySelectorAll("[data-deck-count]").forEach((element) => {
+          element.textContent = String(deckList.length);
+        });
+        document.querySelectorAll("[data-model-count]").forEach((element) => {
+          element.textContent = String(
+            modelCounts[element.dataset.modelCount] || 0,
+          ).padStart(2, "0");
+        });
+        const mastheadNote = document.querySelector(".masthead-note");
+        mastheadNote.dataset.mobileCount = `${deckList.length} DECKS`;
+        mastheadNote.dataset.mobileIssue = `ISSUE 01 / ${deckList.length} DECKS`;
+        const viewer = document.querySelector("#viewer");
+        let frame = document.querySelector("#deckFrame");
+        const title = document.querySelector(".viewer-title");
+        const viewerModel = document.querySelector("#viewerModel");
+        const openTab = document.querySelector("#openTab");
+        const closeButton = document.querySelector("#closeViewer");
+        const album = document.querySelector("#deckAlbum");
+        let lastTrigger = null;
+        let currentSlug = null;
+        let readinessToken = 0;
+        let frameRequestToken = 0;
+        let closing = false;
+        const prefetchedDecks = new Set();
+        const deckDocumentCache = new Map();
+        const transparentPixel =
+          "data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=";
+        const coverCacheVersion = "20260717-nostore";
+        const deckCacheVersion = "20260719-full-nostore-v4";
+
+        function coverUrlFor(deck) {
+          const url = new URL(
+            `/assets/covers/${encodeURIComponent(deck.coverFile)}`,
+            location.origin,
+          );
+          url.searchParams.set(
+            "v",
+            window.HTMLPPTCoverVersions?.[deck.slug] || coverCacheVersion,
+          );
+          return url.href;
+        }
+
+        function deckUrlFor(deck) {
+          const url = new URL(`/${deck.src}`, location.origin);
+          url.searchParams.set("v", deck.version || deckCacheVersion);
+          return url;
+        }
+
+        function cacheBustedAssetUrl(value, baseUrl, version) {
+          if (
+            !value ||
+            value.startsWith("data:") ||
+            value.startsWith("blob:") ||
+            value.startsWith("#")
+          )
+            return value;
+          try {
+            const url = new URL(value, baseUrl);
+            if (url.origin !== location.origin) return value;
+            url.searchParams.set("v", version);
+            return url.href;
+          } catch {
+            return value;
+          }
+        }
+
+        function versionDeckAssets(documentModel, target, version) {
+          documentModel
+            .querySelectorAll("[src]")
+            .forEach((element) =>
+              element.setAttribute(
+                "src",
+                cacheBustedAssetUrl(
+                  element.getAttribute("src"),
+                  target,
+                  version,
+                ),
+              ),
+            );
+          documentModel
+            .querySelectorAll("link[href]")
+            .forEach((element) =>
+              element.setAttribute(
+                "href",
+                cacheBustedAssetUrl(
+                  element.getAttribute("href"),
+                  target,
+                  version,
+                ),
+              ),
+            );
+          const rewriteCssUrls = (css) =>
+            css.replace(
+              /url\(\s*(["']?)([^"')]+)\1\s*\)/g,
+              (match, _quote, value) => {
+                const rewritten = cacheBustedAssetUrl(value, target, version);
+                return rewritten === value ? match : `url("${rewritten}")`;
+              },
+            );
+          documentModel.querySelectorAll("style").forEach((style) => {
+            style.textContent = rewriteCssUrls(style.textContent);
+          });
+          documentModel.querySelectorAll("[style]").forEach((element) => {
+            element.setAttribute(
+              "style",
+              rewriteCssUrls(element.getAttribute("style")),
+            );
+          });
+        }
+
+        function bindFrameEvents() {
+          frame.addEventListener("load", () => {
+            if (currentSlug && frameMatches(currentSlug)) {
+              frame.dataset.loadedSlug = currentSlug;
+              watchFrameInteractive(currentSlug);
+            }
+          });
+        }
+
+        function resetDeckFrame() {
+          const previousFrame = frame;
+          const freshFrame = previousFrame.cloneNode(false);
+          freshFrame.removeAttribute("src");
+          freshFrame.removeAttribute("srcdoc");
+          delete freshFrame.dataset.documentSlug;
+          delete freshFrame.dataset.loadedSlug;
+          previousFrame.replaceWith(freshFrame);
+          frame = freshFrame;
+          bindFrameEvents();
+        }
+
+        bindFrameEvents();
+
+        album.innerHTML = deckList
+          .map(
+            (deck, index) => `
+          <a class="deck-card${deck.manual ? " manual-card" : ""}" href="/share/${deck.slug}/" data-deck="${deck.slug}" data-topic="${deck.topic}" aria-label="${deck.title} 프레젠테이션 열기">
+            <span class="article-head"><span class="article-no">${deck.manual ? "00" : String(index).padStart(2, "0")}</span><span class="article-kind">${deck.topic} / ${deck.kind}</span><span class="article-slides">${deck.slides} P.</span></span>
+            <span class="preview">
+              <img src="${transparentPixel}" data-cover-src="${coverUrlFor(deck)}" alt="${deck.title} 표지 미리보기" width="1280" height="720" loading="lazy" decoding="async" fetchpriority="${index < 3 ? "high" : "low"}">
+              <span class="model-badge" data-tier="${deck.model}">${deck.modelLabel}</span>
+              <span class="play">OPEN DECK<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+            </span>
+            <div class="card-body">
+              <h3>${deck.title}</h3>
+              <p>${deck.description}</p>
+              <div class="card-foot"><div class="tags">${deck.tags.map((tag) => `<span>${tag}</span>`).join("")}<span>16:9</span></div><span class="open-copy">VIEW ↗</span></div>
+            </div>
+          </a>`,
+          )
+          .join("");
+
+        const coverImages = [...album.querySelectorAll("img[data-cover-src]")];
+        const loadCover = (image) => {
+          if (!image.dataset.coverSrc) return;
+          image.src = image.dataset.coverSrc;
+          delete image.dataset.coverSrc;
+        };
+        if ("IntersectionObserver" in window) {
+          const coverObserver = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+                loadCover(entry.target);
+                coverObserver.unobserve(entry.target);
+              });
+            },
+            { rootMargin: "800px 0px" },
+          );
+          coverImages.forEach((image) => coverObserver.observe(image));
+        } else {
+          coverImages.forEach(loadCover);
+        }
+
+        function frameMatches(slug) {
+          const deck = decks[slug];
+          if (!deck) return false;
+          if (frame.dataset.documentSlug === slug && frame.contentDocument)
+            return true;
+          try {
+            const expected = new URL(`/${deck.src}`, location.origin);
+            const actual = new URL(frame.contentWindow.location.href);
+            const canonicalPath = (pathname) =>
+              pathname
+                .replace(/\/index(?:\.html)?$/, "")
+                .replace(/\.html$/, "")
+                .replace(/\/$/, "");
+            return (
+              actual.origin === expected.origin &&
+              canonicalPath(actual.pathname) ===
+                canonicalPath(expected.pathname)
+            );
+          } catch {
+            return false;
+          }
+        }
+
+        function deferredImageRuntime() {
+          const slides = [...document.querySelectorAll(".slide")];
+          const hydrate = (slide) => {
+            if (!slide) return;
+            slide.querySelectorAll("img[data-deck-src]").forEach((image) => {
+              const source = image.dataset.deckSrc;
+              const sourceSet = image.dataset.deckSrcset;
+              if (source) image.src = source;
+              if (sourceSet) image.srcset = sourceSet;
+              delete image.dataset.deckSrc;
+              delete image.dataset.deckSrcset;
+            });
+          };
+          const hydrateAroundActive = () => {
+            let current = slides.findIndex((slide) =>
+              slide.classList.contains("active"),
+            );
+            if (current < 0) current = 0;
+            [current - 1, current, current + 1].forEach((index) =>
+              hydrate(slides[index]),
+            );
+          };
+          const observer = new MutationObserver((records) => {
+            if (
+              records.some(
+                (record) =>
+                  record.attributeName === "class" ||
+                  record.attributeName === "aria-hidden",
+              )
+            )
+              hydrateAroundActive();
+          });
+          slides.forEach((slide) =>
+            observer.observe(slide, {
+              attributes: true,
+              attributeFilter: ["class", "aria-hidden"],
+            }),
+          );
+          hydrateAroundActive();
+        }
+
+        function prepareDeckDocument(slug) {
+          if (deckDocumentCache.has(slug)) return deckDocumentCache.get(slug);
+          const deck = decks[slug];
+          const task = (async () => {
+            const target = deckUrlFor(deck);
+            const version = target.searchParams.get("v");
+            const response = await fetch(target, { cache: "no-store" });
+            if (!response.ok)
+              throw new Error(`Deck fetch failed: ${response.status}`);
+            const source = await response.text();
+            const documentModel = new DOMParser().parseFromString(
+              source,
+              "text/html",
+            );
+            let base = documentModel.head.querySelector("base");
+            if (!base) {
+              base = documentModel.createElement("base");
+              documentModel.head.prepend(base);
+            }
+            base.href = target.href;
+            versionDeckAssets(documentModel, target, version);
+            const historyGuard = documentModel.createElement("script");
+            historyGuard.dataset.galleryHistoryGuard = "";
+            historyGuard.textContent =
+              'if(location.href==="about:srcdoc"){history.pushState=()=>{};history.replaceState=()=>{};}';
+            base.after(historyGuard);
+            const slides = [...documentModel.querySelectorAll(".slide")];
+            slides.forEach((slide, index) => {
+              slide.querySelectorAll("img").forEach((image) => {
+                image.decoding = "async";
+                if (index === 0) image.fetchPriority = "high";
+                if (index <= 1) return;
+                const sourceUrl = image.getAttribute("src");
+                const sourceSet = image.getAttribute("srcset");
+                if (sourceUrl && !sourceUrl.startsWith("data:")) {
+                  image.dataset.deckSrc = sourceUrl;
+                  image.src = transparentPixel;
+                }
+                if (sourceSet) {
+                  image.dataset.deckSrcset = sourceSet;
+                  image.removeAttribute("srcset");
+                }
+                image.loading = "lazy";
+              });
+            });
+            if (slides.length) {
+              const runtime = documentModel.createElement("script");
+              runtime.dataset.galleryDeferredImages = "";
+              runtime.textContent = `(${deferredImageRuntime.toString()})();`;
+              documentModel.body.append(runtime);
+            }
+            return `<!doctype html>\n${documentModel.documentElement.outerHTML}`;
+          })();
+          deckDocumentCache.set(slug, task);
+          task.catch(() => deckDocumentCache.delete(slug));
+          return task;
+        }
+
+        async function loadDeckFrame(slug) {
+          const deck = decks[slug];
+          const token = ++frameRequestToken;
+          if (
+            frame.dataset.documentSlug &&
+            frame.dataset.documentSlug !== slug
+          )
+            resetDeckFrame();
+          delete frame.dataset.loadedSlug;
+          try {
+            const source = await prepareDeckDocument(slug);
+            if (token !== frameRequestToken || currentSlug !== slug) return;
+            frame.dataset.documentSlug = slug;
+            frame.srcdoc = source;
+          } catch {
+            if (token !== frameRequestToken || currentSlug !== slug) return;
+            delete frame.dataset.documentSlug;
+            frame.removeAttribute("srcdoc");
+            frame.src = deckUrlFor(deck).href;
+          }
+        }
+
+        function markFrameReady(slug, token = readinessToken) {
+          if (
+            token !== readinessToken ||
+            viewer.hidden ||
+            currentSlug !== slug ||
+            !frameMatches(slug)
+          )
+            return;
+          frame.dataset.loadedSlug = slug;
+          viewer.classList.add("ready");
+        }
+
+        function watchFrameInteractive(slug) {
+          const token = ++readinessToken;
+          const startedAt = performance.now();
+          const check = () => {
+            if (
+              token !== readinessToken ||
+              viewer.hidden ||
+              currentSlug !== slug
+            )
+              return;
+            try {
+              const doc = frame.contentDocument;
+              const activeSlide =
+                doc?.querySelector(".slide.active") || doc?.querySelector(".slide");
+              const activeImages = activeSlide
+                ? [...activeSlide.querySelectorAll("img")]
+                : [];
+              const activeImagesSettled = activeImages.every(
+                (image) => image.complete && image.naturalWidth > 0,
+              );
+              if (
+                frameMatches(slug) &&
+                doc &&
+                doc.readyState !== "loading" &&
+                activeSlide &&
+                activeImagesSettled
+              ) {
+                requestAnimationFrame(() =>
+                  requestAnimationFrame(() => markFrameReady(slug, token)),
+                );
+                return;
+              }
+              if (
+                performance.now() - startedAt >= 10000 &&
+                frameMatches(slug) &&
+                doc &&
+                doc.readyState !== "loading" &&
+                activeSlide
+              ) {
+                markFrameReady(slug, token);
+                return;
+              }
+            } catch {
+              // The full iframe load event remains the fallback for inaccessible documents.
+            }
+            if (performance.now() - startedAt < 10000)
+              requestAnimationFrame(check);
+          };
+          requestAnimationFrame(check);
+        }
+
+        function showDeck(slug, pushState = true) {
+          const deck = decks[slug];
+          if (!deck) return;
+          closing = false;
+          closeButton.disabled = false;
+          if (document.activeElement instanceof HTMLElement)
+            lastTrigger = document.activeElement;
+          if (pushState) {
+            const shareTarget = new URL(`/share/${encodeURIComponent(slug)}/`, location.origin);
+            if (deck.version) shareTarget.searchParams.set("v", deck.version);
+            history.pushState(
+              { deckOpen: true, slug },
+              "",
+              `${shareTarget.pathname}${shareTarget.search}`,
+            );
+          }
+          viewer.classList.remove("ready");
+          viewer.hidden = false;
+          document.body.classList.add("viewer-open");
+          currentSlug = slug;
+          title.textContent = deck.title;
+          viewerModel.dataset.tier = deck.model;
+          viewerModel.textContent = deck.modelLabel;
+          openTab.href = deckUrlFor(deck).href;
+          frame.title = `${deck.title} 프레젠테이션`;
+          document.dispatchEvent(
+            new CustomEvent("gallery:deckchange", { detail: { deck, slug } }),
+          );
+          if (frame.dataset.loadedSlug !== slug || !frameMatches(slug)) {
+            loadDeckFrame(slug);
+          } else {
+            markFrameReady(slug);
+          }
+          closeButton.focus({ preventScroll: true });
+        }
+
+        function hideDeck() {
+          if (closing || viewer.hidden) return;
+          closing = true;
+          readinessToken += 1;
+          frameRequestToken += 1;
+          viewer.hidden = true;
+          viewer.classList.remove("ready");
+          document.body.classList.remove("viewer-open");
+          currentSlug = null;
+          document.dispatchEvent(
+            new CustomEvent("gallery:deckchange", { detail: { deck: null } }),
+          );
+          // An iframe has its own entries in the browser's joint session history.
+          // Discard its browsing context so mobile Back cannot revive an old deck.
+          resetDeckFrame();
+          if (lastTrigger?.isConnected) lastTrigger.focus({ preventScroll: true });
+          closing = false;
+        }
+
+        function closeDeck(useHistory = true) {
+          if (viewer.hidden) return;
+          if (useHistory && history.state?.deckOpen) {
+            history.back();
+            return;
+          }
+          history.replaceState({ gallery: true }, "", "/");
+          hideDeck();
+        }
+
+        function prefetchDeck(slug) {
+          if (prefetchedDecks.has(slug) || !decks[slug]) return;
+          prefetchedDecks.add(slug);
+          prepareDeckDocument(slug).catch(() => prefetchedDecks.delete(slug));
+        }
+
+        function slugFromLocation() {
+          const pathMatch = location.pathname.match(/^\/share\/([^/]+)\/?$/);
+          if (pathMatch) return decodeURIComponent(pathMatch[1]);
+          return new URL(location.href).searchParams.get("deck");
+        }
+
+        album.addEventListener("click", (event) => {
+          const card = event.target.closest("[data-deck]");
+          if (!card) return;
+          event.preventDefault();
+          showDeck(card.dataset.deck);
+        });
+
+        album.addEventListener("pointerover", (event) => {
+          const card = event.target.closest("[data-deck]");
+          if (card) prefetchDeck(card.dataset.deck);
+        });
+
+        closeButton.addEventListener("click", () => closeDeck());
+        viewer.addEventListener("click", (event) => {
+          if (event.target === viewer) closeDeck();
+        });
+        document.addEventListener("keydown", (event) => {
+          if (event.key === "Escape" && !viewer.hidden) closeDeck();
+        });
+        window.addEventListener("popstate", () => {
+          const slug = slugFromLocation();
+          if (slug && decks[slug]) showDeck(slug, false);
+          else hideDeck();
+        });
+
+        window.HTMLPPTGallery = {
+          deckList,
+          decks,
+          showDeck,
+          closeDeck,
+          getCurrentSlug: () => currentSlug,
+          shareUrlFor: (slug) => {
+            const target = new URL(`/share/${encodeURIComponent(slug)}/`, location.origin);
+            if (decks[slug]?.version) target.searchParams.set("v", decks[slug].version);
+            return target.href;
+          },
+          coverUrlFor,
+        };
+
+        const initialSlug = slugFromLocation();
+        if (initialSlug && decks[initialSlug]) {
+          showDeck(initialSlug, false);
+          if (new URL(location.href).searchParams.has("deck")) {
+            history.replaceState(
+              { directDeck: true, slug: initialSlug },
+              "",
+              `/share/${encodeURIComponent(initialSlug)}/`,
+            );
+          }
+        }
+      })();
+    </script>
+    <script src="gallery-enhancements.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,1 @@
+window.HTMLPPTNotes = Object.freeze({});

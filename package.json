@@ -1,0 +1,15 @@
+{
+  "name": "html-ppt-gallery",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "next": "15.5.21",
+    "react": "19.2.6",
+    "react-dom": "19.2.6"
+  },
+  "type": "module"
+}

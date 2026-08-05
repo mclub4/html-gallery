@@ -1,0 +1,15 @@
+{
+  "count": 1,
+  "decks": [
+    {
+      "slug": "html-ppt-skill-manual",
+      "title": "HTML PPT 스킬 사용설명서",
+      "description": "Build HTML Slides의 특징과 기능, SKILL 개념, 좋은 요청법, Claude·Gemini CLI·ChatGPT 사용법과 활용 조합을 정리한 실전 안내서.",
+      "coverFile": "html-ppt-skill-manual.png",
+      "topic": "기술 · 연구",
+      "modelLabel": "GPT 5.6 SOL · MEDIUM",
+      "file": "html-ppt-skill-manual.html",
+      "coverVersion": "c43e23695f20"
+    }
+  ]
+}
